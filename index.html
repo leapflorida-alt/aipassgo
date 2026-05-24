@@ -762,104 +762,598 @@ function restoreAnswers(){
 
 // ── LEVEL 1 CARDS ──
 const CARDS=[
-  // Session 1
-  {session:0,type:'intro',
-   eyebrow:'Level 1 · Session 1 of 3',
-   title:'Welcome. You just did something most people never do.',
-   body:`You showed up. That already puts you ahead of most people who say <strong>"I should really learn about AI"</strong> and never do anything about it.<br><br>This first session takes about <strong>15 minutes</strong>. By the end of it, you'll know what AI actually is — in plain English, no jargon — and you'll have talked to it yourself.<br><br>Let's go.`,
-   next:'Next →'},
-  {session:0,type:'concept',
-   eyebrow:'The Big Idea',
-   title:'So what actually is AI?',
-   body:`Here's the honest, simple answer:<br><br><strong>AI is software that learned from reading almost everything humans ever wrote.</strong><br><br>Books. Articles. Conversations. Code. It read billions of them and learned how to respond — kind of like a person who's read everything, knows a lot about most things, and can talk to you about any of it.`,
-   analogy:'Think of it like this: imagine a friend who has read every book in every library on earth. You can ask them anything — they\'ll give you a real answer, in plain English, in seconds. That\'s AI. Not magic. Just a very well-read assistant.',
-   next:'Got it →'},
-  {session:0,type:'vocab',
-   eyebrow:'Words Worth Knowing',
-   title:'Three words. That\'s it for now.',
-   body:'You\'ll hear these words constantly. Here\'s what they actually mean:',
-   vocab:[
-     {word:'AI',def:'Software that learned from human writing and can have real conversations.'},
-     {word:'Prompt',def:'What you type to AI. It\'s just a question or instruction — like texting a smart friend.'},
-     {word:'Model',def:'The specific version of AI you\'re talking to. Like different apps on your phone — same idea, slight differences.'}
-   ],
-   next:'I\'ve got these →'},
-  {session:0,type:'sandbox',
-   eyebrow:'Your Turn — For Real',
-   title:'Go ahead. Talk to it.',
-   body:'This is a real AI. Type anything — a question, something you\'ve always wondered about, even just "hello." See what happens.',
-   sandboxLabel:'Live AI — type anything below',
-   prompts:['What is AI in one sentence?','Can AI replace my job?','Tell me something surprising'],
-   next:'That was easy →'},
-  {session:0,type:'complete',
-   eyebrow:'Session 1 Complete',
-   title:'You just talked to AI. 🎉',
-   body:'Seriously — most people spend months saying they should learn about AI. You just did it. Session 1 is done.',
-   isSessionEnd:true,nextSession:'Start Session 2 →'},
 
-  // Session 2
-  {session:1,type:'intro',
-   eyebrow:'Level 1 · Session 2 of 3',
-   title:'Welcome back. Let\'s go deeper.',
-   body:`Session 1 was about understanding what AI is. Session 2 is about learning to <strong>talk to it well</strong>.<br><br>There's a skill to this — and once you have it, AI becomes dramatically more useful. It takes about <strong>15 minutes</strong> to learn the basics.`,
-   next:'Let\'s do it →'},
-  {session:1,type:'concept',
-   eyebrow:'The Key Insight',
-   title:'AI is only as good as what you ask it.',
-   body:`Here's the thing most people miss:<br><br>If you ask AI something vague, you'll get a vague answer. If you ask it something specific, you'll get something genuinely useful.<br><br>It's like asking someone for directions. <strong>"How do I get somewhere nice?"</strong> gets you a shrug. <strong>"How do I get to the nearest coffee shop from here?"</strong> gets you there.`,
-   analogy:'The way you talk to AI is called a <strong>prompt</strong>. A bad prompt gets a bad answer. A good prompt gets something you\'ll actually use. The good news: writing a good prompt is something anyone can learn in minutes.',
-   next:'Show me how →'},
-  {session:1,type:'vocab',
-   eyebrow:'Two More Words',
-   title:'Add these to your vocabulary.',
-   body:'Two more words you\'ll hear constantly — now you\'ll actually know what they mean:',
-   vocab:[
-     {word:'Context',def:'The background you give AI before asking your question. More context = better answers.'},
-     {word:'Hallucination',def:'When AI makes something up confidently. It happens — always double-check important facts.'}
-   ],
-   next:'Good to know →'},
-  {session:1,type:'sandbox',
-   eyebrow:'Practice — Prompt vs. Better Prompt',
-   title:'See the difference yourself.',
-   body:'Try a vague prompt first. Then try a specific one. See how dramatically the answers change.',
-   sandboxLabel:'Try both — vague vs. specific',
-   prompts:['Help me','Help me write a birthday message for my 70-year-old dad who loves fishing','What should I do today?','Give me 3 ideas for a healthy lunch I can make in 10 minutes'],
-   next:'I see the difference →'},
-  {session:1,type:'complete',
-   eyebrow:'Session 2 Complete',
-   title:'You\'re already better at this than most people. 🎯',
-   body:'Understanding the difference between a vague and a specific prompt puts you ahead of the majority of people using AI right now.',
-   isSessionEnd:true,nextSession:'Start Session 3 — the launch →'},
+// ══════════════════════════════════════
+// LEVEL 1 — The Language of AI
+// ══════════════════════════════════════
 
-  // Session 3
-  {session:2,type:'intro',
-   eyebrow:'Level 1 · Session 3 of 3',
-   title:'This is the one that ends with something you can share.',
-   body:`Sessions 1 and 2 were about understanding and talking. Session 3 is about <strong>making something</strong>.<br><br>By the end of this session you'll have created a real AI-made song that you can send to anyone. Something you made. Today. With AI.`,
-   next:'Let\'s make something →'},
-  {session:2,type:'concept',
-   eyebrow:'How AI Music Works',
-   title:'You describe it. AI creates it.',
-   body:`AI music tools work the same way as the AI you've already been talking to — you give it a prompt, it gives you something back.<br><br>The prompt for music is just a description: <strong>what mood, what style, what it's about.</strong> That's it. No instruments needed. No musical talent. Just words.<br><br>We'll use <strong>Suno</strong> — it's free, no download needed, and it creates full songs in about 30 seconds.`,
-   analogy:'You\'re not learning to play guitar. You\'re learning to direct the band. That\'s a completely different skill — and it\'s one you already have.',
-   next:'I\'m ready →'},
-  {session:2,type:'sandbox',
-   eyebrow:'Build Your Song Prompt',
-   title:'Describe your song. AI will make it.',
-   body:'Use the AI below to help you write a great song prompt — then we\'ll take it to Suno and create the actual song.',
-   sandboxLabel:'Tell me about your song and I\'ll help you write the perfect prompt for Suno',
-   prompts:['Help me write a song prompt about summer memories','I want a happy song about my dog — help me describe it','Write me a prompt for a motivational song I could share with a friend'],
-   next:'I have my prompt →'},
-  {session:2,type:'launch',
-   eyebrow:'🚀 Launch Time',
-   title:'Your first real AI creation.',
-   body:`You have your song prompt. Now here's how to turn it into a real song:<br><br><strong>Step 1:</strong> Go to <a href="https://suno.com" target="_blank" style="color:var(--teal);font-weight:600;">suno.com</a> — it's free, no download needed.<br><br><strong>Step 2:</strong> Click <strong>"Create"</strong> and paste your prompt into the description box.<br><br><strong>Step 3:</strong> Click <strong>"Create"</strong> again and wait about 30 seconds.<br><br><strong>Step 4:</strong> Listen to what it made. Share the link with anyone.<br><br>That's it. You just used AI to create music.`,
-   next:'I launched it ✓'},
-  {session:2,type:'levelcomplete',
-   eyebrow:'🎉 Level 1 Complete',
-   title:'You are no longer a beginner.',
-   body:'You know what AI is. You know how to talk to it. And you just made something with it — something you can share. That\'s not nothing. That\'s a real skill.'},
+// Session 1 — What is AI?
+{level:1,session:0,type:'intro',
+ eyebrow:'Level 1 · Session 1 of 3',
+ title:'Welcome. You just did something most people never do.',
+ body:`You showed up. That already puts you ahead of most people who say <strong>"I should really learn about AI"</strong> and never do anything about it.<br><br>This session takes about <strong>15 minutes</strong>. By the end you'll know what AI is — in plain English — and you'll have actually talked to it yourself.`,
+ next:'Let\'s go →'},
+
+{level:1,session:0,type:'concept',
+ eyebrow:'The Big Idea',
+ title:'So what actually is AI?',
+ body:`Here\'s the honest simple answer:<br><br><strong>AI is software that learned from reading almost everything humans ever wrote.</strong><br><br>Books. Articles. Conversations. Recipes. Song lyrics. It read billions of them and learned how to respond — like a person who\'s read everything and can talk to you about any of it.`,
+ analogy:'Think of it like a friend who has read every book in every library on earth. Ask them anything — they give you a real answer in plain English in seconds. That\'s AI. Not magic. Not scary. Just a very well-read assistant who works for you.',
+ next:'Got it →'},
+
+{level:1,session:0,type:'vocab',
+ eyebrow:'Words Worth Knowing',
+ title:'Three words. That\'s all for now.',
+ body:'You\'ll hear these constantly. Here\'s what they actually mean:',
+ vocab:[
+   {word:'AI',def:'Software that learned from human writing and can have real conversations with you.'},
+   {word:'Prompt',def:'What you type to AI. Just a question or instruction — like texting a very smart friend.'},
+   {word:'Model',def:'The specific AI you\'re using. Like different apps on your phone — same idea, different strengths.'}
+ ],
+ next:'I\'ve got these →'},
+
+{level:1,session:0,type:'sandbox',
+ eyebrow:'Your Turn — For Real',
+ title:'Go ahead. Talk to it.',
+ body:'This is a real AI. Type anything — a question you\'ve always had, something you\'re curious about, even just "hello." See what comes back.',
+ sandboxLabel:'Live AI — type anything below',
+ prompts:['What is AI in one sentence?','Can AI replace my job?','Tell me something that will surprise me'],
+ hint:'Not sure what to type? Just say hello and tell it your name. Watch what it does.',
+ next:'That was easy →'},
+
+{level:1,session:0,type:'complete',
+ eyebrow:'Session 1 of 3 Complete ✓',
+ title:'You just talked to AI. 🎉',
+ body:'Most people spend months saying they should learn about AI. You just did it in 15 minutes. Session 1 done — your progress is saved.',
+ isSessionEnd:true,nextSession:'Start Session 2 →'},
+
+// Session 2 — The Prompt is the Power
+{level:1,session:1,type:'intro',
+ eyebrow:'Level 1 · Session 2 of 3',
+ title:'Welcome back. Now let\'s make AI actually useful.',
+ body:`Session 1 was about understanding what AI is. Session 2 is about learning to <strong>talk to it well</strong>.<br><br>There\'s a real skill here — and once you have it, AI becomes dramatically more useful for your everyday life.`,
+ next:'Let\'s do it →'},
+
+{level:1,session:1,type:'concept',
+ eyebrow:'The Key Insight',
+ title:'AI is only as good as what you ask it.',
+ body:`Here\'s what most people miss:<br><br>Ask something vague — you get something vague back. Ask something specific — you get something genuinely useful.<br><br>It\'s like asking for directions. <strong>"Take me somewhere nice"</strong> gets you nowhere. <strong>"Take me to the nearest coffee shop"</strong> gets you there.`,
+ analogy:'The way you talk to AI is called a <strong>prompt</strong>. A weak prompt gets a weak answer. A strong prompt gets something you\'ll actually use. You\'re about to learn the difference in 5 minutes.',
+ next:'Show me →'},
+
+{level:1,session:1,type:'vocab',
+ eyebrow:'Two More Words',
+ title:'Add these to your vocabulary.',
+ body:'You\'ll hear both of these constantly. Now you\'ll know what they mean:',
+ vocab:[
+   {word:'Context',def:'Background you give AI before your question. More context always means better answers.'},
+   {word:'Hallucination',def:'When AI confidently makes something up. It happens — always double-check important facts.'}
+ ],
+ next:'Good to know →'},
+
+{level:1,session:1,type:'sandbox',
+ eyebrow:'See It Yourself',
+ title:'Vague prompt vs. specific prompt.',
+ body:'Try a vague one first. Then a specific one. Watch how dramatically different the answers are.',
+ sandboxLabel:'Try both — see the difference yourself',
+ prompts:['Help me','Help me write a birthday message for my dad who loves fishing and just turned 70','What should I do?','Give me 3 dinner ideas I can make in 20 minutes with chicken and vegetables'],
+ hint:'Try "Help me" first — see the weak answer. Then try the specific fishing one. The difference will surprise you.',
+ next:'I see the difference →'},
+
+{level:1,session:1,type:'complete',
+ eyebrow:'Session 2 of 3 Complete ✓',
+ title:'You\'re already better at this than most people. 🎯',
+ body:'Most people who use AI daily have never thought about prompt quality. You now understand something they don\'t.',
+ isSessionEnd:true,nextSession:'Start Session 3 — the launch →'},
+
+// Session 3 — Make Your First Thing
+{level:1,session:2,type:'intro',
+ eyebrow:'Level 1 · Session 3 of 3',
+ title:'This is the one that ends with something you can share.',
+ body:`Sessions 1 and 2 were about understanding and talking. Session 3 is about <strong>making something real</strong>.<br><br>By the end you\'ll have an AI-made song — with full lyrics — that you created and can share with anyone right now.`,
+ next:'Let\'s make something →'},
+
+{level:1,session:2,type:'concept',
+ eyebrow:'How AI Music Works',
+ title:'You describe it. AI writes the lyrics and makes the song.',
+ body:`We\'ll use <strong>Suno</strong> — it\'s completely free, no download needed, works right in your browser.<br><br>Here\'s how it works: you give it a prompt describing your song, and it writes the full lyrics AND creates the music — vocals, instruments, everything — in about 30 seconds.<br><br><strong>The secret to longer, richer lyrics:</strong> tell Suno exactly how long you want it, what emotions to hit, and ask for multiple verses and a chorus. The more detail you give, the better the song.`,
+ analogy:'You\'re not learning to play guitar. You\'re learning to direct the band AND write the lyrics. That\'s a completely different skill — and you already have it.',
+ next:'I\'m ready →'},
+
+{level:1,session:2,type:'sandbox',
+ eyebrow:'Build Your Song Prompt',
+ title:'Tell me about your song. I\'ll write you a detailed Suno prompt.',
+ body:'The more you tell me, the richer the song will be. Try one of the examples or describe your own idea.',
+ sandboxLabel:'Describe your song idea — I\'ll build a detailed prompt with full lyrics instructions',
+ prompts:[
+   'Help me write a detailed Suno prompt for an uplifting country song about home — I want full verses, a chorus, and a bridge. Make the lyrics emotional and personal.',
+   'Write me a Suno prompt for a motivational song I can share with a friend going through hard times. I want it to be 3 minutes long with detailed lyrics.',
+   'Create a Suno prompt for a fun summer road trip song — multiple verses, catchy chorus, happy mood. I want it to feel like a real radio song.'
+ ],
+ hint:'Tell AI the mood, style, topic, and that you want FULL lyrics with multiple verses and a chorus. The more detail, the longer the song.',
+ next:'I have my prompt →'},
+
+{level:1,session:2,type:'launch',
+ eyebrow:'🚀 Launch Time — Level 1 Project',
+ title:'Create your AI song on Suno.',
+ body:`<strong>Suno is completely free</strong> — no credit card, no download, works right in your browser.<br><br><strong>Step 1:</strong> Go to <a href="https://suno.com" target="_blank" style="color:var(--teal);font-weight:600;">suno.com</a> and click <strong>Sign Up Free</strong><br><br><strong>Step 2:</strong> Click <strong>Create</strong> in the left menu<br><br><strong>Step 3:</strong> Paste your prompt — check <strong>"Custom mode"</strong> for more control<br><br><strong>Step 4:</strong> Click <strong>Create</strong> and wait about 30 seconds<br><br><strong>Step 5:</strong> Copy the lyrics shown below the song — paste them somewhere to save<br><br><strong>Step 6:</strong> Share the link with anyone. That\'s your first AI creation.<br><br><em>💡 Tip: If the song is too short, add "Write full detailed lyrics with 3 verses, a chorus, and a bridge" to your prompt.</em>`,
+ next:'I launched it ✓'},
+
+{level:1,session:2,type:'levelcomplete',
+ level:1,
+ eyebrow:'🎉 Level 1 Complete',
+ title:'You are no longer a beginner.',
+ body:'You walked in not knowing what AI was. You walked out having talked to it, understood it, and created a real song with it. That\'s a genuine skill.',
+ shareText:'I just completed Level 1 of AIPass Go™ — I went from zero AI experience to creating my own AI song in one session. Learn by Launch 🚀'},
+
+// ══════════════════════════════════════
+// LEVEL 2 — The Prompt is the Power
+// ══════════════════════════════════════
+
+{level:2,session:0,type:'intro',
+ eyebrow:'Level 2 · Session 1 of 3',
+ title:'Level 1 was about understanding. Level 2 is about using AI for YOUR life.',
+ body:`You know what AI is. You know how to talk to it.<br><br>Now we make it work for things that actually matter to you — your health, your money, your family, your job.<br><br>By the end of Level 2 you\'ll have written and shared something real — a post, a message, or a piece of content with your name on it, created with AI as your tool.<br><br>Session 1 starts with the most powerful AI skill most people never figure out.`,
+ next:'Let\'s go →'},
+
+{level:2,session:0,type:'concept',
+ eyebrow:'The Power Move',
+ title:'Give AI a role. Watch everything change.',
+ body:`Here\'s what changes everything:<br><br>AI responds completely differently depending on what role you give it before asking your question.<br><br><strong>Without a role:</strong><br>"What should I eat to sleep better?"<br><em>Gets you: generic advice anyone could Google</em><br><br><strong>With a role:</strong><br>"You are a nutritionist who works with people over 60. I have trouble sleeping. What 3 foods should I add to my diet and why?"<br><em>Gets you: specific, expert-level advice tailored to your situation</em>`,
+ analogy:'Think of it like calling a general helpline vs. asking your doctor friend. Same question. Completely different answer. You get to choose who AI is before it responds to you.',
+ next:'Let me try this →'},
+
+{level:2,session:0,type:'vocab',
+ eyebrow:'Level 2 Vocabulary',
+ title:'Three more words. These are the useful ones.',
+ body:'Add these to what you already know from Level 1:',
+ vocab:[
+   {word:'Role prompting',def:'Giving AI a job title or expertise before asking your question. "You are a lawyer..." "You are a chef..." Changes everything.'},
+   {word:'Tone',def:'The personality of AI\'s response. You can ask for warm, professional, funny, simple, or direct.'},
+   {word:'Output format',def:'How you want the answer delivered. A list, a paragraph, step-by-step, a table. Just ask.'}
+ ],
+ next:'Got them →'},
+
+{level:2,session:0,type:'sandbox',
+ eyebrow:'Try It — Role Prompting',
+ title:'Give AI a role. See what you get.',
+ body:'Try the examples or write your own. Notice how giving AI a role changes the entire answer.',
+ sandboxLabel:'Role prompting — try these or write your own',
+ prompts:[
+   'You are a financial advisor who speaks in plain English. I spend too much on eating out. Give me 3 honest ways to cut back without feeling miserable.',
+   'You are a doctor explaining things to a worried patient. Tell me what high blood pressure actually means and what I should do about it.',
+   'You are a career coach. I have been in the same job for 12 years and I feel stuck. What should I be thinking about right now?',
+   'You are a personal trainer working with someone over 60 who has never exercised. What is the safest way to start moving again?'
+ ],
+ hint:'Copy one of these examples exactly, paste it in, and hit Ask AI. Then try changing the role to something that fits your life.',
+ next:'This changes everything →'},
+
+{level:2,session:0,type:'complete',
+ eyebrow:'Session 1 of 3 Complete ✓',
+ title:'You just learned what most AI users never figure out. 🧠',
+ body:'Role prompting is used by professionals who get paid to work with AI. You now know how to do it.',
+ isSessionEnd:true,nextSession:'Start Session 2 →'},
+
+{level:2,session:1,type:'intro',
+ eyebrow:'Level 2 · Session 2 of 3',
+ title:'Let\'s write something you\'d actually put your name on.',
+ body:`Session 2 is about writing — using AI to create things you\'d actually share with the world.<br><br>A social post. A message to a friend. A caption. Something genuine that sounds like you — not a robot.<br><br>That\'s the skill companies pay for. You\'re about to learn it.`,
+ next:'Let\'s write something →'},
+
+{level:2,session:1,type:'concept',
+ eyebrow:'The Writing Formula',
+ title:'How to get AI to write in YOUR voice.',
+ body:`The secret to AI writing that doesn\'t sound like AI:<br><br><strong>1. Tell it who you are</strong> — your background, your tone, your audience<br><strong>2. Tell it what you want</strong> — a post, email, caption, message<br><strong>3. Tell it what NOT to do</strong> — no corporate speak, no clichés, keep it under 150 words<br><br>The more you tell it about what you DON\'T want, the better what you get.`,
+ analogy:'AI is like a ghostwriter who is incredibly talented but knows nothing about you yet. The more you tell them about your style, the better they write for you. You are the voice. AI is the pen.',
+ next:'Got it →'},
+
+{level:2,session:1,type:'sandbox',
+ eyebrow:'Write Something Real',
+ title:'Pick a topic you care about. Let\'s write a post.',
+ body:'Tell AI who you are and what you want to write. It will create something you can actually use.',
+ sandboxLabel:'Tell me what you want to write — I\'ll help you nail it',
+ prompts:[
+   'I am a retired nurse. Write me a short warm LinkedIn post about why experience still matters in the age of AI. Under 150 words, honest not corporate.',
+   'Write me an Instagram caption for a photo of my garden. I am proud of it but I do not want to sound braggy. Warm and a little funny.',
+   'I run a small home bakery. Write a Facebook post announcing we are now open Sundays. Personal and excited — not like an advertisement.',
+   'Write a short motivational post I could share with friends about not letting age stop you from trying new things. Keep it genuine.'
+ ],
+ hint:'Tell AI your name, what you do or did, and what you want to say. The more personal the details, the more it sounds like you.',
+ next:'I have something worth sharing →'},
+
+{level:2,session:1,type:'complete',
+ eyebrow:'Session 2 of 3 Complete ✓',
+ title:'You just wrote something with AI. 📝',
+ body:'And it sounds like you — not a robot. That is the skill. Session 2 done.',
+ isSessionEnd:true,nextSession:'Start Session 3 — the launch →'},
+
+{level:2,session:2,type:'intro',
+ eyebrow:'Level 2 · Session 3 of 3',
+ title:'Time to put it out into the world.',
+ body:`You have something worth sharing. Now share it.<br><br>Every time someone like you posts something made with AI, you\'re quietly showing people around you that this technology is not just for tech people.<br><br><strong>You become the person in their life who figured it out first.</strong>`,
+ next:'Let\'s launch →'},
+
+{level:2,session:2,type:'sandbox',
+ eyebrow:'Polish It',
+ title:'Let\'s make your post exactly right.',
+ body:'Paste what you wrote and ask AI to refine it — shorter, punchier, different tone. Get it exactly how you want it.',
+ sandboxLabel:'Paste your post — tell me how to improve it',
+ prompts:[
+   'Make this shorter and punchier — cut to under 100 words without losing the message',
+   'Make this sound warmer and less formal — like I am talking to a friend',
+   'Add a question at the end that will get people to comment',
+   'Give me 3 different versions — short, medium, and conversational'
+ ],
+ hint:'Paste your post from Session 2 into the box. Then tell AI what to change. Keep going until it feels exactly right.',
+ next:'It\'s ready to post →'},
+
+{level:2,session:2,type:'launch',
+ eyebrow:'🚀 Level 2 Project — Post It',
+ title:'Share it. Right now.',
+ body:`Copy your post. Open Facebook, Instagram, LinkedIn, X — wherever feels right — and post it.<br><br>You do not need to say AI helped write it. You do not need to explain anything.<br><br><strong>You wrote it. AI helped. That is exactly how every professional writer and marketer works now.</strong><br><br>Hit post. Come back here when you have done it.`,
+ next:'I posted it ✓'},
+
+{level:2,session:2,type:'levelcomplete',
+ level:2,
+ eyebrow:'🎉 Level 2 Complete',
+ title:'You just did something professionals get paid to do.',
+ body:'Content creation with AI is a skill companies hire for. You just did it — for yourself, for free, in under an hour. Two levels done.',
+ shareText:'Just completed Level 2 of AIPass Go™ — I wrote and posted real content using AI. From zero to published in two sessions. Learn by Launch 🚀'},
+
+// ══════════════════════════════════════
+// LEVEL 3 — AI as Your Creative Studio [PRO]
+// ══════════════════════════════════════
+
+{level:3,session:0,type:'intro',
+ eyebrow:'Level 3 · Session 1 of 4 · ★ Pro',
+ title:'This is the level where people\'s jaws drop.',
+ body:`Levels 1 and 2 were about words — understanding and communicating with AI.<br><br>Level 3 is about <strong>visuals</strong>. Images. Video. Things that used to require a professional designer or a film crew.<br><br>By the end of this level you\'ll have created something that looks like it came from a professional studio. No design skills. No camera. Just you and the right words.`,
+ next:'Show me →'},
+
+{level:3,session:0,type:'concept',
+ eyebrow:'How AI Images Work',
+ title:'You describe it. AI creates it.',
+ body:`AI image generators work on exactly the same principle as everything else you\'ve learned — <strong>the better your description, the better the result.</strong><br><br>For images, the description includes:<br>• What you want to see<br>• The style (photo, painting, watercolor, cinematic)<br>• The mood and lighting<br>• What you do NOT want in it<br><br>We\'ll use <strong>Adobe Firefly</strong> — it\'s free, browser-based, and built for beginners.`,
+ analogy:'You are not learning to paint. You are learning to commission a painting. You describe exactly what you want — the style, the mood, the colors — and a world-class artist executes it in seconds.',
+ next:'Let\'s try it →'},
+
+{level:3,session:0,type:'vocab',
+ eyebrow:'Image Prompt Words',
+ title:'These words make your images dramatically better.',
+ body:'Add these to your prompting toolkit:',
+ vocab:[
+   {word:'Photorealistic',def:'Tells AI to make the image look like a real photograph rather than an illustration.'},
+   {word:'Cinematic',def:'Tells AI to use dramatic lighting and composition like a movie scene.'},
+   {word:'Negative prompt',def:'Telling AI what you do NOT want in the image. Removes unwanted elements.'}
+ ],
+ next:'Got them →'},
+
+{level:3,session:0,type:'sandbox',
+ eyebrow:'Build Your Image Prompt',
+ title:'Tell me what you want to create.',
+ body:'Use AI below to build your image prompt — then we take it to Adobe Firefly and make the actual image.',
+ sandboxLabel:'Describe what you want to create — I will build the perfect image prompt',
+ prompts:[
+   'Help me write an image prompt for a cozy autumn coffee shop — photorealistic, warm golden lighting, no people inside, steam rising from cups',
+   'I want to create a professional logo-style image for my small bakery called Sunday Morning Bakes — simple, warm, inviting, professional quality',
+   'Write me a prompt for a stunning landscape photo — mountains at sunrise, dramatic clouds, cinematic lighting, looks like a professional photograph',
+   'Help me create a warm professional profile photo background — a home office setting, bookshelves, natural light, welcoming and approachable'
+ ],
+ hint:'Tell me what you want to show, the style (photo, painting, etc), the mood, and anything you do NOT want. I will write a professional prompt.',
+ next:'I have my prompt →'},
+
+{level:3,session:0,type:'complete',
+ eyebrow:'Session 1 of 4 Complete ✓',
+ title:'Your image prompt is ready. 🎨',
+ body:'Next session we take it to Adobe Firefly and make the actual image.',
+ isSessionEnd:true,nextSession:'Start Session 2 — make the image →'},
+
+{level:3,session:1,type:'launch',
+ eyebrow:'Create Your Image',
+ title:'Adobe Firefly — free, browser-based, no download.',
+ body:`<strong>Step 1:</strong> Go to <a href="https://firefly.adobe.com" target="_blank" style="color:var(--teal);font-weight:600;">firefly.adobe.com</a><br><br><strong>Step 2:</strong> Click <strong>Text to image</strong><br><br><strong>Step 3:</strong> Paste your prompt from Session 1<br><br><strong>Step 4:</strong> Click <strong>Generate</strong> — it creates 4 variations in about 15 seconds<br><br><strong>Step 5:</strong> Pick your favourite — click the download icon to save it<br><br><em>💡 If you do not love the results, use the AI below to refine your prompt and try again.</em>`,
+ next:'I made my image →'},
+
+{level:3,session:1,type:'sandbox',
+ eyebrow:'Refine Your Prompt',
+ title:'Not happy with it? Let\'s fix the prompt.',
+ body:'Tell me what was wrong and I will rewrite it to get closer to what you want.',
+ sandboxLabel:'Tell me what was wrong — I will rewrite the prompt',
+ prompts:[
+   'The image was too dark — help me add better lighting instructions to my prompt',
+   'It did not look realistic enough — how do I make it more photorealistic?',
+   'The style was not what I wanted — help me add better style description words',
+   'There were people in it and I did not want people — write me a negative prompt to remove them'
+ ],
+ hint:'Tell me exactly what you did not like. Too dark, wrong style, unwanted elements — I can fix all of these with better prompt words.',
+ next:'My image looks great →'},
+
+{level:3,session:1,type:'complete',
+ eyebrow:'Session 2 of 4 Complete ✓',
+ title:'You just created something that used to cost hundreds of dollars. 🖼️',
+ body:'A professional image designer would charge $150-500 for what you just made. You did it in minutes, for free.',
+ isSessionEnd:true,nextSession:'Start Session 3 — AI video →'},
+
+{level:3,session:2,type:'intro',
+ eyebrow:'Level 3 · Session 3 of 4 · ★ Pro',
+ title:'This is the one that makes people say "wait — YOU made that?"',
+ body:`Images were impressive. What comes next is genuinely jaw-dropping.<br><br>AI video generation is one of the newest and most powerful things you can do with AI right now.<br><br>We\'re going to create a short video from nothing but a text description.<br><br>No camera. No editing software. No experience. Just words.`,
+ next:'I\'m ready →'},
+
+{level:3,session:2,type:'concept',
+ eyebrow:'AI Video — How It Works',
+ title:'Same idea as images. But it moves.',
+ body:`AI video works exactly like image generation — describe what you want, the AI renders it.<br><br>The difference is you also describe <strong>movement</strong>: a camera slowly zooming in, waves crashing on a shore, leaves blowing in the wind, steam rising from coffee.<br><br>We\'ll use <strong>Runway</strong> — the tool used by professional filmmakers. There\'s a free tier that gives you enough credits to create your first video today.`,
+ analogy:'Three years ago this technology did not exist for regular people. Two years ago it cost thousands of dollars. Today you are doing it for free on your laptop. That is how fast AI moves — and you are moving with it.',
+ next:'Let\'s make a video →'},
+
+{level:3,session:2,type:'sandbox',
+ eyebrow:'Build Your Video Prompt',
+ title:'What do you want to see moving?',
+ body:'Tell me your idea — I will help you write a video prompt that Runway can work with.',
+ sandboxLabel:'Describe your video idea — I will write the prompt',
+ prompts:[
+   'A slow cinematic shot slowly zooming into a mountain lake at golden hour, mist rising from the still water, no people, peaceful and beautiful',
+   'A cozy winter kitchen scene — snow falling outside the window, a candle flickering on the table, steam rising from a mug of tea, warm and inviting',
+   'Ocean waves slowly crashing on a rocky shoreline at sunset, dramatic orange and purple sky, slow motion, cinematic quality',
+   'A peaceful garden in spring — flowers gently moving in a light breeze, bees hovering, warm sunlight filtering through leaves'
+ ],
+ hint:'Describe the scene, the camera movement (slow zoom, pan left, etc), the mood, and the lighting. The more visual detail, the better the video.',
+ next:'I have my video prompt →'},
+
+{level:3,session:2,type:'launch',
+ eyebrow:'🎬 Create Your Video',
+ title:'Runway — used by Hollywood. Free for you today.',
+ body:`<strong>Step 1:</strong> Go to <a href="https://runwayml.com" target="_blank" style="color:var(--teal);font-weight:600;">runwayml.com</a> — sign up free<br><br><strong>Step 2:</strong> Click <strong>Gen-3 Alpha</strong> or <strong>Text to Video</strong><br><br><strong>Step 3:</strong> Paste your prompt<br><br><strong>Step 4:</strong> Click <strong>Generate</strong> — takes about 60 seconds<br><br><strong>Step 5:</strong> Download it. Share it anywhere.<br><br>When someone asks how you made it — tell them you used AI. Because you did. And you knew exactly what you were doing.`,
+ next:'I made my video →'},
+
+{level:3,session:2,type:'complete',
+ eyebrow:'Session 3 of 4 Complete ✓',
+ title:'You just made a video. Without a camera. 🎬',
+ body:'Ad agencies charge thousands for AI video production. You just did it for free. One session left in Level 3.',
+ isSessionEnd:true,nextSession:'Start Session 4 — share it →'},
+
+{level:3,session:3,type:'sandbox',
+ eyebrow:'Level 3 · Session 4 of 4 · ★ Pro',
+ title:'Write something worth sharing alongside what you created.',
+ body:'You have an image. Maybe a video. Now use AI to write the caption or message to go with it.',
+ sandboxLabel:'Tell me what you made — I will write something worth posting with it',
+ prompts:[
+   'I made an AI image of a mountain lake. Help me write a thoughtful Instagram caption — poetic but not pretentious, under 80 words',
+   'I made an AI video of ocean waves. Write me a Facebook post explaining I made this with AI — make it exciting not technical, personal not corporate',
+   'Write me a short message I can send my kids or grandkids along with my AI image — something that shows them I am learning new things',
+   'Write me a LinkedIn post about what I created in Level 3 of AIPass Go — genuine and proud without being braggy'
+ ],
+ hint:'Tell me what you made, who you are sharing it with, and the tone you want. I will write something that makes people stop scrolling.',
+ next:'I\'m ready to share →'},
+
+{level:3,session:3,type:'launch',
+ eyebrow:'🚀 Level 3 Project — Share It',
+ title:'Share what you made.',
+ body:`You created this. An image. Maybe a video. Words to go with it.<br><br>Share it — wherever feels right. Your kids, your friends, your social media, a group chat.<br><br><strong>You do not have to explain the technology. You just have to share the thing.</strong><br><br>Let it speak for itself. Because what it says is: <em>I figured this out. And it is not as scary as I thought.</em>`,
+ next:'I shared it ✓'},
+
+{level:3,session:3,type:'levelcomplete',
+ level:3,
+ eyebrow:'🎉 Level 3 Complete',
+ title:'You just created what used to take a full creative team.',
+ body:'Images. Video. Written content. A complete creative package made by you, with AI as your tool. Three levels down. Two to go.',
+ shareText:'Just completed Level 3 of AIPass Go™ — I created AI images and video from scratch with no design experience. The results are stunning. Learn by Launch 🚀'},
+
+// ══════════════════════════════════════
+// LEVEL 4 — Build a Real Thing [PRO]
+// ══════════════════════════════════════
+
+{level:4,session:0,type:'intro',
+ eyebrow:'Level 4 · Session 1 of 4 · ★ Pro',
+ title:'This level ends with a real website. With your name on it.',
+ body:`Everything so far has been creating content — songs, posts, images, video.<br><br>Level 4 is about <strong>building</strong> something. A real website. A live URL that anyone in the world can visit.<br><br>No coding. No web design experience. You describe what you want in plain English and AI builds it while you watch.`,
+ next:'Let\'s build something →'},
+
+{level:4,session:0,type:'concept',
+ eyebrow:'What Is a Website, Really?',
+ title:'It is just a page on the internet with your name on it.',
+ body:`A website sounds technical. It is not.<br><br>At its most basic, a website is just a document that lives on the internet instead of your computer. Anyone with the link can open it.<br><br><strong>What we\'re going to build:</strong> A simple personal page. Your name. A short bio. A way for people to find and contact you.<br><br>We\'ll use <strong>Lovable</strong> — you describe what you want in plain English and it builds the website live as you watch.`,
+ analogy:'Building a website used to be like building a house — you needed architects, contractors, specialists. Now it is like describing your dream house to someone who builds it in front of you in real time while you give feedback.',
+ next:'I\'m ready →'},
+
+{level:4,session:0,type:'sandbox',
+ eyebrow:'Plan Your Website',
+ title:'Tell me about yourself. Let\'s plan your site.',
+ body:'Answer a few questions and I will help you figure out exactly what your website should say — before we build anything.',
+ sandboxLabel:'Tell me about yourself — I will help you plan your website',
+ prompts:[
+   'I am a retired teacher who loves gardening and photography. Help me plan a simple personal website — what sections do I need?',
+   'I do occasional handyman work on the side and want a simple site so people in my area can find and contact me. What do I need?',
+   'I want a website for my small home baking business. I sell to neighbours and at local markets. What pages should I start with?',
+   'Help me write a short bio for my personal website. I worked in healthcare for 28 years and now I am exploring AI and new hobbies.'
+ ],
+ hint:'Just tell me a little about yourself and what you want the website to do. I will give you a clear plan for exactly what to build.',
+ next:'I have my plan →'},
+
+{level:4,session:0,type:'complete',
+ eyebrow:'Session 1 of 4 Complete ✓',
+ title:'Your website is planned. Now we build it. 🏗️',
+ body:'You know what you want. Next session is where it comes to life — for real.',
+ isSessionEnd:true,nextSession:'Start Session 2 — build it →'},
+
+{level:4,session:1,type:'launch',
+ eyebrow:'Build Time',
+ title:'Lovable — describe it, watch it get built.',
+ body:`<strong>Step 1:</strong> Go to <a href="https://lovable.dev" target="_blank" style="color:var(--teal);font-weight:600;">lovable.dev</a> — sign up free<br><br><strong>Step 2:</strong> Click <strong>New Project</strong><br><br><strong>Step 3:</strong> In the chat box describe your website using your plan from Session 1. Be specific — the more detail you give, the better it builds.<br><br><strong>Step 4:</strong> Watch it build live. Give feedback in plain English — "make the header bigger", "change the colour to green", "add a contact form".<br><br><strong>Step 5:</strong> When you are happy — click <strong>Publish</strong>. You get a live URL anyone can visit.`,
+ next:'I built it →'},
+
+{level:4,session:1,type:'sandbox',
+ eyebrow:'Need Help? I\'m Right Here.',
+ title:'Stuck on something in Lovable? Ask me.',
+ body:'If Lovable is not doing what you want — describe the problem and I will help you write better instructions for it.',
+ sandboxLabel:'What is not working? Tell me and I will help you fix it',
+ prompts:[
+   'Lovable made my site look too formal and corporate — how do I tell it to make it warmer and more personal?',
+   'I want to add a section showing my hobbies with some photos — what should I type to Lovable to do that?',
+   'The colours are not what I wanted — help me describe the look I am going for so I can tell Lovable',
+   'I want to add a simple contact form where people can email me — what should I ask Lovable to build?'
+ ],
+ hint:'Copy your question, paste it in, and I will give you the exact words to type into Lovable to fix it.',
+ next:'My site is live →'},
+
+{level:4,session:1,type:'complete',
+ eyebrow:'Session 2 of 4 Complete ✓',
+ title:'Your website exists. On the internet. Right now. 🌐',
+ body:'Share that URL. Anyone in the world can visit it. You built that.',
+ isSessionEnd:true,nextSession:'Start Session 3 — make it yours →'},
+
+{level:4,session:2,type:'sandbox',
+ eyebrow:'Polish Your Site',
+ title:'Let\'s make the words on your site exactly right.',
+ body:'Use AI to write better content for your site — a stronger bio, better headings, more compelling descriptions.',
+ sandboxLabel:'Tell me what needs improving — I will help make it better',
+ prompts:[
+   'Rewrite my bio to sound warmer and more inviting. Here is what I have so far:',
+   'Write me a headline for my website homepage that makes people want to stay and keep reading',
+   'I have a services section but it sounds too boring and generic — help me make it more interesting and personal',
+   'Write me a short "Why work with me" section for my website — warm and honest, not salesy'
+ ],
+ hint:'Paste your current text in and tell me what feels wrong about it — too formal, too boring, too vague. I will fix it.',
+ next:'My site looks great →'},
+
+{level:4,session:2,type:'complete',
+ eyebrow:'Session 3 of 4 Complete ✓',
+ title:'Your website is starting to look like something real. 💪',
+ body:'One session left — the one where you share it with the world.',
+ isSessionEnd:true,nextSession:'Start Session 4 — the launch →'},
+
+{level:4,session:3,type:'sandbox',
+ eyebrow:'Your Launch Message',
+ title:'Write the message you\'ll send when you share your site.',
+ body:'You built something. Tell people about it. Use AI to write the message.',
+ sandboxLabel:'Tell me who you are sharing it with — I will write the perfect message',
+ prompts:[
+   'Write a text I can send my kids sharing my new personal website — proud but not braggy, warm and a little funny',
+   'Write a LinkedIn post announcing my new personal website — professional but warm, genuine not corporate',
+   'Write a casual Facebook post sharing my site with friends — excited, genuine, makes them want to click the link',
+   'Write a short email I can send to a few people I know sharing my new website for the first time'
+ ],
+ hint:'Tell me who you are sending it to and the tone you want. I will write something that makes people actually click the link.',
+ next:'My message is ready →'},
+
+{level:4,session:3,type:'launch',
+ eyebrow:'🚀 Level 4 Project — Share Your Website',
+ title:'Send that link to someone today.',
+ body:`You built a real website. A live URL. Something that exists on the internet with your name on it.<br><br>Send the link to someone today. A family member. A friend. An old colleague.<br><br><strong>Not because it is perfect. Because you built it — and that matters.</strong><br><br>Come back for Level 5 — where you learn how to make money from everything you have built.`,
+ next:'I shared it ✓'},
+
+{level:4,session:3,type:'levelcomplete',
+ level:4,
+ eyebrow:'🎉 Level 4 Complete',
+ title:'You just built something that didn\'t exist this morning.',
+ body:'A real website. A live URL. Your name on the internet in a place you own and control. Four levels down. One to go — and it is the big one.',
+ shareText:'Just completed Level 4 of AIPass Go™ — I built a real live website with no coding experience. It is online right now. Learn by Launch 🚀'},
+
+// ══════════════════════════════════════
+// LEVEL 5 — Make it Pay [PRO — Boss Level]
+// ══════════════════════════════════════
+
+{level:5,session:0,type:'intro',
+ eyebrow:'Level 5 · Session 1 of 3 · ★ Boss Level',
+ title:'This is the level most people never reach. You did.',
+ body:`Four levels. You walked in not knowing what AI was.<br><br>You talked to it. Created with it. Built a website with it.<br><br>Level 5 is the boss level. It is about turning what you have built into something that can <strong>earn money</strong>.<br><br>This is not for everyone — and that is completely fine. But if you have ever thought about selling something online with AI helping you deliver it, this is where it starts.`,
+ next:'I\'m ready →'},
+
+{level:5,session:0,type:'concept',
+ eyebrow:'How People Make Money with AI',
+ title:'It is simpler than you think.',
+ body:`Here are the most common ways people earn with AI right now:<br><br><strong>1. Selling a service</strong> — writing, images, social media content, created with AI, sold to local businesses<br><strong>2. Selling a product</strong> — an ebook, a recipe guide, a course, created with AI help, sold online<br><strong>3. Selling access</strong> — building something useful and charging a monthly fee<br><br>By the end of this level you will have a real payment button on your website. A real product. A real price.`,
+ analogy:'AI is like having a capable employee who works for almost nothing and never sleeps. Most businesses would pay a lot for that. You already have it. Level 5 is about charging for the output.',
+ next:'Show me how →'},
+
+{level:5,session:0,type:'sandbox',
+ eyebrow:'What Could You Sell?',
+ title:'Let\'s figure out what you could actually charge for.',
+ body:'Tell me about yourself — I will help you figure out what you could realistically sell online with AI helping you deliver it.',
+ sandboxLabel:'Tell me about yourself — let\'s find your first product or service',
+ prompts:[
+   'I am a retired teacher with 30 years of experience. What could I realistically sell online using AI to help me create the content?',
+   'I have collected hundreds of family recipes over 40 years. How could I turn them into something I could sell with AI helping me?',
+   'I do handyman work on the side. How could AI and a website help me get more customers and charge more for my work?',
+   'I do not have an obvious skill to sell. What are the easiest things people with no special background sell online using AI to help them?'
+ ],
+ hint:'Just tell me what you are good at, what you know a lot about, or what you enjoy doing. I will find something worth selling in there.',
+ next:'I have an idea →'},
+
+{level:5,session:0,type:'complete',
+ eyebrow:'Session 1 of 3 Complete ✓',
+ title:'You have an idea. Now let\'s make it real. 💡',
+ body:'Session 2 is where we add a real payment button to your website. Not a fake one. A real one that takes real money.',
+ isSessionEnd:true,nextSession:'Start Session 2 — add payments →'},
+
+{level:5,session:1,type:'concept',
+ eyebrow:'How Stripe Works',
+ title:'You set the price. Stripe handles everything else.',
+ body:`Here is the whole process:<br><br><strong>1.</strong> Create a free Stripe account<br><strong>2.</strong> Create a Payment Link — just pick a price and a description<br><strong>3.</strong> Stripe gives you a link or button<br><strong>4.</strong> Add it to your Lovable website<br><strong>5.</strong> Someone clicks it, pays, money hits your bank in 2 days<br><br>Stripe charges 2.9% plus 30 cents per transaction. No monthly fee. No setup cost. You only pay when someone pays you.`,
+ analogy:'Stripe is like a professional cashier who works 24 hours a day, handles all the security, sends receipts automatically, and only charges you when someone actually pays you.',
+ next:'Let\'s set it up →'},
+
+{level:5,session:1,type:'launch',
+ eyebrow:'Set Up Your First Payment',
+ title:'Stripe — free to set up. Only costs when you get paid.',
+ body:`<strong>Step 1:</strong> Go to <a href="https://stripe.com" target="_blank" style="color:var(--teal);font-weight:600;">stripe.com</a> — create a free account<br><br><strong>Step 2:</strong> Click <strong>Payment Links</strong> in the left menu<br><br><strong>Step 3:</strong> Click <strong>Create payment link</strong> — set your price and a short description of what you are selling<br><br><strong>Step 4:</strong> Copy the link Stripe gives you<br><br><strong>Step 5:</strong> Go to your Lovable website — tell it to add a button that links to your Stripe payment link<br><br><strong>Step 6:</strong> Click Publish. You now have a product for sale on the internet.`,
+ next:'My payment button is live →'},
+
+{level:5,session:1,type:'sandbox',
+ eyebrow:'Write Your Sales Copy',
+ title:'Every payment button needs words around it.',
+ body:'Tell me what you are selling — I will write the copy that goes around your payment button.',
+ sandboxLabel:'Tell me what you are selling and who it is for — I will write the copy',
+ prompts:[
+   'I am selling a 30 minute video call where I help people with their vegetable garden. The price is $35. Write me 3 short sentences that go above the book now button.',
+   'I am selling a PDF of my 25 best family dinner recipes for $9. Write me a short warm sales paragraph that makes people want to buy it.',
+   'I offer handyman services and want people to pay a $25 deposit to book me. Write the text for that button on my website.',
+   'Write me a simple "Why buy from me" section for my website — warm and honest. I have 20 years of experience and I genuinely care about my customers.'
+ ],
+ hint:'Tell me what you are selling, the price, and who the perfect customer is. I will write copy that makes people want to click buy.',
+ next:'My copy is ready →'},
+
+{level:5,session:1,type:'complete',
+ eyebrow:'Session 2 of 3 Complete ✓',
+ title:'You have something for sale on the internet. 🛒',
+ body:'A real product. A real price. A real payment button. One session left.',
+ isSessionEnd:true,nextSession:'Start Session 3 — get your first customer →'},
+
+{level:5,session:2,type:'concept',
+ eyebrow:'Your First Customer',
+ title:'Your first customer is closer than you think.',
+ body:`Here is what most people get wrong: they think they need a big audience before they can sell anything.<br><br>They do not.<br><br>Your first customer is probably:<br>✓ Someone you already know who has the problem you solve<br>✓ Someone in a local Facebook group who mentions needing what you offer<br>✓ Someone who finds your website searching for exactly what you provide<br><br><strong>You do not need a thousand customers. You need one. Then another. Then another.</strong>`,
+ analogy:'Every business that exists today had a first customer. Apple had a first customer. They were not famous yet. They just had something worth buying and told someone about it.',
+ next:'How do I find them? →'},
+
+{level:5,session:2,type:'sandbox',
+ eyebrow:'Find Your First Customer',
+ title:'Let\'s write the message that gets you your first sale.',
+ body:'Tell me what you are selling and who your most likely first customer is — I will write the exact message to send them.',
+ sandboxLabel:'Tell me your product and your most likely first customer — I will write the outreach',
+ prompts:[
+   'I am selling recipe guides and my best potential customers are people in my local neighbourhood Facebook group. Write me a post I could share there that feels genuine not salesy.',
+   'I offer gardening consultation calls for $35. Write me a short friendly message I could send to 5 neighbours who I know like gardening.',
+   'I do handyman work. Write me something I could post in my local community Facebook group to get my first booking — honest, local, trustworthy.',
+   'Help me write a simple personal email I could send to 5 people I know who might be interested in what I am selling. Keep it short and genuine.'
+ ],
+ hint:'The best first message is personal and specific. Tell me who you know that might want this and I will write something that does not feel like spam.',
+ next:'I have my outreach ready →'},
+
+{level:5,session:2,type:'launch',
+ eyebrow:'🚀 Your Final Launch',
+ title:'Send it. To a real person. Right now.',
+ body:`You have a website. A product. A payment button. A message.<br><br>Send the message to one real person today.<br><br>Not to test it. Not just to see what happens. To actually try to make a sale.<br><br><strong>The worst that happens: they say no. You learn. You try again.</strong><br><br>The best that happens: you make your first dollar on the internet — with AI helping you do it.<br><br>Send it. Then come back here for the last thing we need to say to you.`,
+ next:'I sent it ✓'},
+
+{level:5,session:2,type:'graduation',
+ eyebrow:'🎓 AIPass Go™ — Complete',
+ title:'You walked in scared. You\'re walking out ready.',
+ body:'Five levels. Real things built. Real skills earned. The AI future is not something happening to you anymore. You are part of it.'},
+
 ];
+;
 
 let currentCard=0;
 const TOTAL=CARDS.length;
