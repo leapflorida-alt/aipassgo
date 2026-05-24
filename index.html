@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIPass Go™ — Learn by Launch</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFAF8;
+  --bg-card:#FFFFFF;
+  --bg-soft:#F5F4F0;
+  --bg-teal:#EDF7F6;
+  --bg-amber:#FEF8EC;
+  --bg-green:#EDFBF4;
+  --bg-navy:#EEF1F8;
+  --teal:#0D9488;
+  --teal-dark:#0A7A70;
+  --teal-border:#99D6D1;
+  --amber:#F59E0B;
+  --amber-border:#FCD34D;
+  --green:#059669;
+  --navy:#1C2B4A;
+  --text:#1C1917;
+  --text-mid:#44403C;
+  --text-soft:#78716C;
+  --text-faint:#A8A29E;
+  --border:#E7E5E0;
+  --border-mid:#D6D3CC;
+  --font-head:'Fraunces',Georgia,serif;
+  --font-body:'DM Sans',system-ui,sans-serif;
+  --radius:16px;
+  --radius-sm:10px;
+  --radius-pill:100px;
+  --shadow-sm:0 1px 4px rgba(28,25,23,0.06),0 1px 2px rgba(28,25,23,0.04);
+  --shadow-md:0 4px 16px rgba(28,25,23,0.08),0 2px 4px rgba(28,25,23,0.04);
+  --shadow-lg:0 12px 40px rgba(28,25,23,0.10),0 4px 8px rgba(28,25,23,0.05);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased;}
+
+/* ── MARKETING PAGE ── */
+.mkt-nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(250,250,248,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:0 24px;
+}
+.mkt-nav-inner{
+  max-width:900px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  height:64px;
+}
+.logo{
+  font-family:var(--font-head);font-size:24px;font-weight:700;
+  color:var(--navy);letter-spacing:-0.5px;text-decoration:none;
+}
+.logo span{color:var(--teal);}
+.nav-start-btn{
+  background:var(--teal);color:#fff;
+  font-family:var(--font-body);font-size:15px;font-weight:600;
+  padding:10px 24px;border-radius:var(--radius-sm);
+  border:none;cursor:pointer;transition:all 0.18s;
+}
+.nav-start-btn:hover{background:var(--teal-dark);transform:translateY(-1px);}
+
+.hero-wrap{
+  max-width:900px;margin:0 auto;
+  padding:80px 24px 72px;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:500;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--teal);
+  background:var(--bg-teal);border:1px solid var(--teal-border);
+  padding:6px 16px;border-radius:var(--radius-pill);
+  margin-bottom:28px;
+}
+.hero-wrap h1{
+  font-family:var(--font-head);
+  font-size:clamp(38px,6vw,68px);
+  font-weight:700;line-height:1.08;
+  letter-spacing:-2px;color:var(--navy);
+  margin-bottom:24px;
+}
+.hero-wrap h1 em{font-style:italic;color:var(--teal);}
+.hero-sub{
+  font-size:20px;font-weight:300;line-height:1.7;
+  color:var(--text-mid);max-width:580px;margin-bottom:40px;
+}
+.hero-cta-wrap{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.btn-hero{
+  background:var(--teal);color:#fff;
+  font-family:var(--font-body);font-size:18px;font-weight:600;
+  padding:18px 40px;border-radius:var(--radius-sm);
+  border:none;cursor:pointer;
+  display:inline-flex;align-items:center;gap:10px;
+  transition:all 0.18s;box-shadow:var(--shadow-md);
+}
+.btn-hero:hover{background:var(--teal-dark);transform:translateY(-2px);box-shadow:var(--shadow-lg);}
+.hero-time{
+  font-size:15px;color:var(--text-soft);
+  display:flex;align-items:center;gap:6px;
+}
+.hero-time::before{content:'⏱';font-size:16px;}
+
+.social-proof{
+  display:flex;align-items:center;gap:16px;
+  margin-top:40px;padding-top:40px;
+  border-top:1px solid var(--border);
+  flex-wrap:wrap;
+}
+.proof-item{
+  display:flex;align-items:center;gap:8px;
+  font-size:14px;color:var(--text-soft);
+}
+.proof-item::before{content:'✓';color:var(--green);font-weight:700;}
+
+/* MIRROR SECTION */
+.mirror-section{
+  background:var(--navy);
+  padding:72px 24px;
+}
+.mirror-inner{max-width:900px;margin:0 auto;}
+.mirror-inner h2{
+  font-family:var(--font-head);
+  font-size:clamp(28px,4vw,44px);
+  font-weight:700;color:#fff;
+  letter-spacing:-1px;margin-bottom:40px;
+  line-height:1.15;
+}
+.mirror-inner h2 em{font-style:italic;color:var(--teal);}
+.mirror-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+}
+.mirror-card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:var(--radius);padding:24px;
+}
+.mirror-card p{
+  font-size:16px;color:rgba(255,255,255,0.8);
+  line-height:1.65;font-style:italic;
+}
+.mirror-card .name{
+  font-size:13px;color:rgba(255,255,255,0.4);
+  margin-top:12px;font-style:normal;
+}
+.mirror-cta{
+  text-align:center;margin-top:48px;
+}
+.mirror-cta p{
+  font-size:20px;font-weight:300;color:rgba(255,255,255,0.7);
+  margin-bottom:24px;line-height:1.6;
+}
+.mirror-cta p strong{color:#fff;}
+
+/* HOW IT WORKS */
+.how-section{padding:80px 24px;}
+.how-inner{max-width:900px;margin:0 auto;}
+.section-eyebrow{
+  font-size:12px;font-weight:600;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--text-soft);
+  margin-bottom:16px;
+}
+.how-inner h2{
+  font-family:var(--font-head);
+  font-size:clamp(28px,4vw,42px);
+  font-weight:700;color:var(--navy);
+  letter-spacing:-1px;margin-bottom:48px;
+  line-height:1.15;
+}
+.steps{display:flex;flex-direction:column;gap:0;}
+.step{
+  display:flex;gap:24px;
+  padding:32px 0;
+  border-bottom:1px solid var(--border);
+}
+.step:last-child{border-bottom:none;}
+.step-num{
+  width:48px;height:48px;border-radius:50%;
+  background:var(--bg-teal);border:2px solid var(--teal-border);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-head);font-size:18px;font-weight:700;
+  color:var(--teal);flex-shrink:0;
+}
+.step-body{}
+.step-title{
+  font-family:var(--font-head);font-size:22px;font-weight:600;
+  color:var(--navy);letter-spacing:-0.3px;margin-bottom:8px;
+}
+.step-desc{font-size:16px;color:var(--text-soft);line-height:1.65;}
+.step-launch{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:14px;font-weight:500;color:var(--teal);
+  margin-top:10px;
+}
+
+/* PRICING */
+.pricing-section{
+  background:var(--bg-soft);
+  padding:80px 24px;
+}
+.pricing-inner{max-width:900px;margin:0 auto;}
+.pricing-inner h2{
+  font-family:var(--font-head);
+  font-size:clamp(28px,4vw,42px);
+  font-weight:700;color:var(--navy);
+  letter-spacing:-1px;margin-bottom:12px;text-align:center;
+}
+.pricing-inner .sub{
+  text-align:center;font-size:17px;color:var(--text-soft);
+  margin-bottom:48px;
+}
+.plans{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;align-items:start;
+}
+.plan{
+  background:var(--bg-card);border:1.5px solid var(--border);
+  border-radius:var(--radius);padding:36px 28px;
+  box-shadow:var(--shadow-sm);
+}
+.plan.featured{
+  border-color:var(--teal);
+  box-shadow:0 0 0 4px var(--bg-teal),var(--shadow-lg);
+  position:relative;
+}
+.plan-badge{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--teal);color:#fff;
+  font-size:12px;font-weight:600;letter-spacing:0.06em;
+  padding:4px 18px;border-radius:var(--radius-pill);
+  white-space:nowrap;
+}
+.plan-name{
+  font-family:var(--font-head);font-size:22px;font-weight:700;
+  color:var(--navy);margin-bottom:6px;
+}
+.plan-price{
+  font-family:var(--font-head);font-size:48px;font-weight:700;
+  color:var(--navy);letter-spacing:-2px;line-height:1;margin-bottom:6px;
+}
+.plan-price sup{font-size:24px;vertical-align:super;letter-spacing:0;}
+.plan-price sub{font-size:18px;font-weight:400;letter-spacing:0;color:var(--text-soft);}
+.plan-tag{font-size:14px;color:var(--text-soft);margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px;}
+.plan-features li{
+  font-size:15px;color:var(--text-mid);
+  display:flex;align-items:flex-start;gap:10px;line-height:1.5;
+}
+.plan-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:2px;}
+.plan-features li.locked::before{content:'○';color:var(--text-faint);}
+.plan-features li.locked{color:var(--text-faint);}
+.plan-btn{
+  width:100%;padding:15px;border-radius:var(--radius-sm);
+  font-family:var(--font-body);font-size:16px;font-weight:600;
+  cursor:pointer;border:none;transition:all 0.18s;
+}
+.plan-btn.free{background:var(--bg-soft);color:var(--navy);border:1.5px solid var(--border-mid);}
+.plan-btn.free:hover{background:var(--bg-navy);border-color:var(--navy);}
+.plan-btn.pro{background:var(--teal);color:#fff;}
+.plan-btn.pro:hover{background:var(--teal-dark);transform:translateY(-1px);}
+
+/* FOOTER */
+footer{
+  padding:40px 24px;border-top:1px solid var(--border);
+}
+.footer-inner{
+  max-width:900px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;
+}
+.footer-logo{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--navy);}
+.footer-logo span{color:var(--teal);}
+.footer-copy{font-size:13px;color:var(--text-faint);}
+.footer-by{font-size:13px;color:var(--text-faint);}
+.footer-by a{color:var(--teal);text-decoration:none;}
+
+/* ══════════════════════════════════════════
+   APP — full screen experience
+══════════════════════════════════════════ */
+.app{
+  display:none;position:fixed;inset:0;z-index:200;
+  background:var(--bg);overflow-y:auto;
+}
+.app.open{display:block;}
+
+.app-nav{
+  position:sticky;top:0;z-index:10;
+  background:rgba(250,250,248,0.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);padding:0 20px;
+}
+.app-nav-inner{
+  max-width:680px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  height:60px;gap:12px;
+}
+.app-logo{font-family:var(--font-head);font-size:20px;font-weight:700;color:var(--navy);}
+.app-logo span{color:var(--teal);}
+.app-exit{
+  background:transparent;border:1.5px solid var(--border-mid);
+  color:var(--text-soft);font-size:14px;font-weight:500;
+  padding:7px 16px;border-radius:var(--radius-sm);cursor:pointer;
+  font-family:var(--font-body);transition:all 0.15s;
+}
+.app-exit:hover{border-color:var(--navy);color:var(--navy);}
+
+/* streak + xp bar */
+.app-stats{
+  background:var(--bg-soft);border-bottom:1px solid var(--border);
+  padding:10px 20px;
+}
+.app-stats-inner{
+  max-width:680px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  flex-wrap:wrap;
+}
+.streak-pill{
+  display:flex;align-items:center;gap:6px;
+  font-size:14px;font-weight:600;color:var(--navy);
+}
+.streak-flame{font-size:18px;}
+.xp-wrap{display:flex;align-items:center;gap:8px;flex:1;max-width:200px;}
+.xp-label{font-size:13px;color:var(--text-soft);white-space:nowrap;}
+.xp-bar-bg{flex:1;height:8px;background:var(--border);border-radius:var(--radius-pill);overflow:hidden;}
+.xp-bar-fill{height:100%;background:var(--amber);border-radius:var(--radius-pill);transition:width 0.4s ease;}
+.xp-count{font-size:13px;font-weight:600;color:var(--amber);white-space:nowrap;}
+.usage-pill{
+  font-size:12px;color:var(--text-soft);
+  display:flex;align-items:center;gap:4px;
+}
+
+/* progress */
+.app-progress{padding:12px 20px;background:var(--bg-card);border-bottom:1px solid var(--border);}
+.app-progress-inner{max-width:680px;margin:0 auto;}
+.prog-meta{display:flex;justify-content:space-between;margin-bottom:6px;}
+.prog-label{font-size:13px;font-weight:500;color:var(--text-soft);}
+.prog-pct{font-size:13px;font-weight:600;color:var(--teal);}
+.prog-bg{height:8px;background:var(--border);border-radius:var(--radius-pill);overflow:hidden;}
+.prog-fill{height:100%;background:var(--teal);border-radius:var(--radius-pill);transition:width 0.5s ease;}
+
+/* SCREEN SYSTEM */
+.app-body{max-width:680px;margin:0 auto;padding:32px 20px 100px;}
+
+/* Every screen is one focused thing */
+.screen{animation:screenIn 0.3s ease both;}
+@keyframes screenIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+.screen-eyebrow{
+  font-size:12px;font-weight:600;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--teal);margin-bottom:16px;
+  display:flex;align-items:center;gap:8px;
+}
+.screen-eyebrow::before{content:'';display:inline-block;width:20px;height:2px;background:var(--teal);}
+
+.screen-title{
+  font-family:var(--font-head);
+  font-size:clamp(26px,5vw,38px);
+  font-weight:700;color:var(--navy);
+  letter-spacing:-0.8px;line-height:1.15;
+  margin-bottom:20px;
+}
+
+.screen-body{
+  font-size:18px;color:var(--text-mid);
+  line-height:1.75;margin-bottom:28px;
+}
+.screen-body strong{color:var(--navy);}
+
+.analogy-box{
+  background:var(--bg-soft);
+  border-left:4px solid var(--teal);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  padding:20px 24px;margin:24px 0;
+  font-size:16px;color:var(--text-mid);
+  line-height:1.7;font-style:italic;
+}
+.analogy-box strong{font-style:normal;color:var(--navy);}
+
+/* FEAR SCREEN */
+.fear-options{display:flex;flex-direction:column;gap:12px;margin:28px 0;}
+.fear-opt{
+  background:var(--bg-card);
+  border:2px solid var(--border);
+  border-radius:var(--radius);padding:20px 24px;
+  cursor:pointer;font-family:var(--font-body);
+  font-size:17px;color:var(--text-mid);
+  text-align:left;transition:all 0.15s;
+  display:flex;align-items:center;gap:14px;
+  line-height:1.45;
+}
+.fear-opt:hover{border-color:var(--teal);color:var(--navy);background:var(--bg-teal);}
+.fear-opt.selected{border-color:var(--teal);color:var(--navy);background:var(--bg-teal);}
+.fear-opt .fear-icon{font-size:28px;flex-shrink:0;}
+
+/* AI RESPONSE BOX */
+.ai-response-box{
+  background:var(--bg-teal);
+  border:1.5px solid var(--teal-border);
+  border-radius:var(--radius);
+  padding:24px;margin:24px 0;
+  display:none;animation:screenIn 0.3s ease both;
+}
+.ai-response-box.show{display:block;}
+.ai-resp-label{
+  font-size:12px;font-weight:600;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--teal);
+  margin-bottom:12px;display:flex;align-items:center;gap:6px;
+}
+.ai-resp-label::before{content:'🤖';font-size:16px;}
+.ai-resp-text{font-size:17px;color:var(--text-mid);line-height:1.75;}
+
+/* INPUT SYSTEM */
+.input-label{
+  font-size:15px;font-weight:500;color:var(--navy);
+  margin-bottom:10px;display:block;
+}
+.big-input{
+  width:100%;background:var(--bg-card);
+  border:2px solid var(--border);border-radius:var(--radius-sm);
+  padding:16px 20px;font-family:var(--font-body);
+  font-size:17px;color:var(--text);
+  resize:none;min-height:80px;
+  transition:border-color 0.15s;line-height:1.6;
+}
+.big-input:focus{outline:none;border-color:var(--teal);}
+.send-btn{
+  background:var(--teal);color:#fff;
+  border:none;border-radius:var(--radius-sm);
+  padding:15px 28px;font-family:var(--font-body);
+  font-size:16px;font-weight:600;cursor:pointer;
+  transition:all 0.18s;margin-top:12px;
+  display:inline-flex;align-items:center;gap:8px;
+  width:100%;justify-content:center;
+}
+.send-btn:hover{background:var(--teal-dark);}
+.send-btn:disabled{background:var(--text-faint);cursor:not-allowed;}
+
+/* PROMPT CHIPS */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+.chip{
+  background:var(--bg-soft);border:1.5px solid var(--border);
+  color:var(--text-mid);font-size:14px;
+  padding:8px 16px;border-radius:var(--radius-pill);
+  cursor:pointer;font-family:var(--font-body);
+  transition:all 0.15s;
+}
+.chip:hover{border-color:var(--teal);color:var(--teal);background:var(--bg-teal);}
+
+/* VOCAB CARDS */
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:20px 0;}
+.vocab-card{
+  background:var(--bg-soft);border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:18px;
+}
+.vocab-word{
+  font-family:var(--font-head);font-size:18px;font-weight:700;
+  color:var(--navy);margin-bottom:8px;
+}
+.vocab-def{font-size:14px;color:var(--text-soft);line-height:1.6;}
+
+/* QUIZ */
+.quiz-question{
+  font-family:var(--font-head);font-size:22px;font-weight:600;
+  color:var(--navy);margin-bottom:24px;line-height:1.3;
+}
+.quiz-opts{display:flex;flex-direction:column;gap:10px;margin-bottom:20px;}
+.quiz-opt{
+  background:var(--bg-card);border:2px solid var(--border);
+  border-radius:var(--radius-sm);padding:16px 20px;
+  cursor:pointer;font-family:var(--font-body);
+  font-size:16px;color:var(--text-mid);
+  text-align:left;transition:all 0.15s;
+}
+.quiz-opt:hover{border-color:var(--teal);color:var(--navy);}
+.quiz-opt.correct{border-color:var(--green);background:var(--bg-green);color:var(--green);}
+.quiz-opt.wrong{border-color:#EF4444;background:#FEF2F2;color:#DC2626;}
+.quiz-feedback{
+  padding:16px 20px;border-radius:var(--radius-sm);
+  font-size:16px;line-height:1.6;margin-bottom:16px;
+  display:none;
+}
+.quiz-feedback.show{display:block;}
+.quiz-feedback.correct-fb{background:var(--bg-green);color:var(--green);border:1px solid #A7DFC7;}
+.quiz-feedback.wrong-fb{background:#FEF2F2;color:#DC2626;border:1px solid #FECACA;}
+
+/* NAVIGATION */
+.screen-nav{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:32px;gap:12px;
+}
+.btn-next{
+  background:var(--teal);color:#fff;
+  border:none;border-radius:var(--radius-sm);
+  padding:16px 32px;font-family:var(--font-body);
+  font-size:17px;font-weight:600;cursor:pointer;
+  transition:all 0.18s;flex:1;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.btn-next:hover{background:var(--teal-dark);}
+.btn-next:disabled{background:var(--text-faint);cursor:not-allowed;}
+.btn-back{
+  background:transparent;border:1.5px solid var(--border);
+  color:var(--text-soft);font-family:var(--font-body);
+  font-size:15px;padding:15px 20px;
+  border-radius:var(--radius-sm);cursor:pointer;
+  transition:all 0.15s;flex-shrink:0;
+}
+.btn-back:hover{border-color:var(--border-mid);color:var(--text);}
+.locked-note{
+  font-size:14px;color:var(--text-faint);
+  text-align:center;margin-top:12px;
+}
+
+/* WIN SCREEN */
+.win-screen{text-align:center;padding:24px 0;}
+.win-emoji{font-size:72px;margin-bottom:20px;display:block;animation:pop 0.5s cubic-bezier(0.36,0.07,0.19,0.97) both;}
+@keyframes pop{0%{transform:scale(0.3);opacity:0;}70%{transform:scale(1.2);}100%{transform:scale(1);opacity:1;}}
+.win-title{
+  font-family:var(--font-head);font-size:32px;font-weight:700;
+  color:var(--navy);letter-spacing:-1px;margin-bottom:14px;
+}
+.win-body{font-size:18px;color:var(--text-mid);line-height:1.7;margin-bottom:32px;max-width:480px;margin-left:auto;margin-right:auto;}
+
+/* XP CELEBRATION */
+.xp-pop{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--bg-amber);border:1px solid var(--amber-border);
+  border-radius:var(--radius-pill);padding:10px 20px;
+  font-size:16px;font-weight:600;color:var(--amber);
+  margin-bottom:24px;animation:fadeUp 0.4s 0.3s ease both;
+  opacity:0;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+
+/* SHARE BOX */
+.share-box{
+  background:var(--bg-soft);border:1px solid var(--border);
+  border-radius:var(--radius);padding:24px;
+  margin-bottom:24px;
+}
+.share-box p{font-size:15px;color:var(--text-soft);margin-bottom:16px;}
+.share-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.share-btn{
+  background:var(--bg-card);border:1.5px solid var(--border);
+  color:var(--text-mid);font-size:14px;font-weight:500;
+  padding:10px 20px;border-radius:var(--radius-sm);
+  cursor:pointer;font-family:var(--font-body);transition:all 0.15s;
+}
+.share-btn:hover{border-color:var(--teal);color:var(--teal);}
+
+.btn-continue{
+  background:var(--teal);color:#fff;border:none;
+  border-radius:var(--radius-sm);padding:18px 40px;
+  font-family:var(--font-body);font-size:18px;font-weight:600;
+  cursor:pointer;transition:all 0.18s;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-continue:hover{background:var(--teal-dark);transform:translateY(-1px);}
+
+/* FEAR METER */
+.fear-meter{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px 24px;
+  margin-bottom:24px;
+}
+.fear-meter-label{
+  display:flex;justify-content:space-between;
+  font-size:13px;font-weight:500;margin-bottom:10px;
+}
+.fear-meter-label span:first-child{color:var(--text-soft);}
+.fear-meter-label span:last-child{color:var(--teal);font-weight:600;}
+.fear-track{height:12px;background:var(--border);border-radius:var(--radius-pill);overflow:hidden;}
+.fear-fill{height:100%;border-radius:var(--radius-pill);transition:width 0.8s ease;
+  background:linear-gradient(90deg,#EF4444,var(--amber),var(--green));}
+
+/* GRADUATION */
+.grad-card{
+  background:var(--navy);border-radius:var(--radius);
+  padding:32px;margin:24px 0;text-align:left;
+}
+.grad-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.grad-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:16px;color:rgba(255,255,255,0.85);line-height:1.5;
+}
+.grad-list li::before{content:'✓';color:var(--teal);font-weight:700;flex-shrink:0;}
+.grad-badge{
+  background:var(--bg-teal);border:2px solid var(--teal);
+  border-radius:var(--radius);padding:24px;
+  text-align:center;margin:20px 0;
+}
+.grad-badge-title{
+  font-family:var(--font-head);font-size:22px;font-weight:700;
+  color:var(--navy);margin-bottom:4px;
+}
+.grad-badge-sub{font-size:14px;color:var(--text-soft);}
+
+/* TYPING DOTS */
+.typing{display:inline-flex;gap:5px;align-items:center;padding:4px 0;}
+.typing span{width:8px;height:8px;border-radius:50%;background:var(--teal);animation:typing 1.2s infinite;}
+.typing span:nth-child(2){animation-delay:0.2s;}
+.typing span:nth-child(3){animation-delay:0.4s;}
+@keyframes typing{0%,60%,100%{transform:translateY(0);opacity:0.3;}30%{transform:translateY(-5px);opacity:1;}}
+
+/* LIMIT MODAL */
+.modal-overlay{
+  position:fixed;inset:0;z-index:500;
+  background:rgba(28,25,23,0.5);
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;animation:fadeIn 0.2s ease both;
+}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.modal-box{
+  background:var(--bg-card);border-radius:var(--radius);
+  padding:40px 32px;max-width:420px;width:100%;
+  box-shadow:var(--shadow-lg);text-align:center;
+}
+.modal-box h3{
+  font-family:var(--font-head);font-size:26px;font-weight:700;
+  color:var(--navy);margin-bottom:12px;letter-spacing:-0.5px;
+}
+.modal-box p{font-size:16px;color:var(--text-mid);line-height:1.65;margin-bottom:24px;}
+.modal-opts{display:flex;flex-direction:column;gap:10px;}
+.modal-opt-primary{
+  background:var(--teal);color:#fff;border:none;
+  border-radius:var(--radius-sm);padding:15px;
+  font-family:var(--font-body);font-size:16px;font-weight:600;
+  cursor:pointer;transition:all 0.18s;
+}
+.modal-opt-primary:hover{background:var(--teal-dark);}
+.modal-opt-secondary{
+  background:var(--bg-soft);color:var(--text-mid);
+  border:1.5px solid var(--border);
+  border-radius:var(--radius-sm);padding:13px;
+  font-family:var(--font-body);font-size:15px;font-weight:500;
+  cursor:pointer;transition:all 0.15s;
+}
+.modal-opt-secondary:hover{border-color:var(--border-mid);color:var(--text);}
+
+@media(max-width:600px){
+  .hero-wrap h1{letter-spacing:-1px;}
+  .mkt-nav-inner .nav-start-btn{display:none;}
+  .app-body{padding:24px 16px 80px;}
+  .screen-title{font-size:26px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════
+     MARKETING PAGE
+════════════════════════════════ -->
+<nav class="mkt-nav">
+  <div class="mkt-nav-inner">
+    <a class="logo" href="#">AI<span>Pass</span> Go™</a>
+    <button class="nav-start-btn" onclick="startApp()">Start free — 6 minutes →</button>
+  </div>
+</nav>
+
+<div class="hero-wrap">
+  <div class="hero-tag">✦ Learn by Launch</div>
+  <h1>Everyone's talking about AI.<br><em>Now you will too.</em></h1>
+  <p class="hero-sub">Six minutes from now you'll have used real AI — and have something to show for it. No experience needed. No jargon. Just results.</p>
+  <div class="hero-cta-wrap">
+    <button class="btn-hero" onclick="startApp()">
+      Start your first session →
+    </button>
+    <div class="hero-time">Takes 6 minutes</div>
+  </div>
+  <div class="social-proof">
+    <div class="proof-item">No experience needed</div>
+    <div class="proof-item">Levels 1 &amp; 2 completely free</div>
+    <div class="proof-item">Save your progress anytime</div>
+    <div class="proof-item">Real AI. Real results.</div>
+  </div>
+</div>
+
+<div class="mirror-section">
+  <div class="mirror-inner">
+    <h2>Sound familiar?<br><em>You're not alone.</em></h2>
+    <div class="mirror-grid">
+      <div class="mirror-card">
+        <p>"Everyone at work keeps talking about AI. I just nod. I have no idea what they're saying."</p>
+        <div class="name">— Sound like someone you know?</div>
+      </div>
+      <div class="mirror-card">
+        <p>"My kids keep telling me to try it. I've been meaning to. But honestly it just seems really complicated."</p>
+        <div class="name">— That changes today.</div>
+      </div>
+      <div class="mirror-card">
+        <p>"I'm worried AI is going to replace my job and I don't even know what it actually does."</p>
+        <div class="name">— Let's fix that in 6 minutes.</div>
+      </div>
+    </div>
+    <div class="mirror-cta">
+      <p>AIPass Go was built for <strong>exactly this moment</strong>.<br>You come in unsure. You leave capable.</p>
+      <button class="btn-hero" onclick="startApp()">Start — it's free →</button>
+    </div>
+  </div>
+</div>
+
+<div class="how-section">
+  <div class="how-inner">
+    <div class="section-eyebrow">How it works</div>
+    <h2>Every session ends with something real.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">We start with how you actually feel</div>
+          <div class="step-desc">No signup form. No quiz. Just one honest question about what worries you most — and a real response that addresses it before we teach you anything.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">You do something before we explain it</div>
+          <div class="step-desc">Every session starts with action, not reading. You talk to real AI first. The explanation comes after — so it makes sense immediately.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">You prove you got it</div>
+          <div class="step-desc">One quick question after every concept. Not to grade you — to make sure it landed. Get it wrong and the app explains why, then lets you try again.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Every level ends with a real launch</div>
+          <div class="step-desc">A song. A post. An image. A video. A website. A payment button. Something you made with AI that you can share with anyone today.</div>
+          <div class="step-launch">🚀 That's how you know it worked</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pricing-section">
+  <div class="pricing-inner">
+    <div class="section-eyebrow" style="text-align:center;">Simple pricing</div>
+    <h2>Start free. Upgrade when you're ready.</h2>
+    <p class="sub">Two complete levels — and two real things you made — completely free. No credit card needed.</p>
+    <div class="plans">
+      <div class="plan">
+        <div class="plan-name">Free</div>
+        <div class="plan-price"><sup>$</sup>0<sub>/forever</sub></div>
+        <div class="plan-tag">Two complete levels. Two real launches. No card needed.</div>
+        <ul class="plan-features">
+          <li>Level 1 — The Language of AI</li>
+          <li>Level 2 — The Prompt is the Power</li>
+          <li>Launch: AI-made song</li>
+          <li>Launch: Post worth sharing</li>
+          <li>Progress saves automatically</li>
+          <li>20 AI interactions per month</li>
+          <li class="locked">Level 3 — AI Creative Studio</li>
+          <li class="locked">Level 4 — Build a Website</li>
+          <li class="locked">Level 5 — Make it Pay</li>
+        </ul>
+        <button class="plan-btn free" onclick="startApp()">Start for free →</button>
+      </div>
+      <div class="plan featured">
+        <div class="plan-badge">Most popular</div>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price"><sup>$</sup>9<sub>.99/mo</sub></div>
+        <div class="plan-tag">All five levels. AI images, video, website, and a real income stream.</div>
+        <ul class="plan-features">
+          <li>Everything in Free</li>
+          <li>Level 3 — AI images &amp; video</li>
+          <li>Level 4 — Build a live website</li>
+          <li>Level 5 — Add payments &amp; earn</li>
+          <li>200 AI interactions per month</li>
+          <li>Top-up packs available</li>
+          <li>Cancel anytime</li>
+        </ul>
+        <button class="plan-btn pro" onclick="alert('Stripe coming very soon!')">Upgrade to Pro →</button>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:20px;font-size:14px;color:var(--text-faint);">Secure payment via Stripe · Apple Pay &amp; Google Pay · Cancel anytime</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">AI<span>Pass</span> Go™</div>
+    <div class="footer-copy">Learn by Launch · © 2026</div>
+    <div class="footer-by">A <a href="https://verishift.com" target="_blank">Verishift</a> product</div>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════
+     APP — FULL SCREEN EXPERIENCE
+════════════════════════════════ -->
+<div class="app" id="app">
+  <nav class="app-nav">
+    <div class="app-nav-inner">
+      <div class="app-logo">AI<span>Pass</span> Go™</div>
+      <button class="app-exit" onclick="exitApp()">💾 Save &amp; exit</button>
+    </div>
+  </nav>
+
+  <div class="app-stats">
+    <div class="app-stats-inner">
+      <div class="streak-pill">
+        <span class="streak-flame">🔥</span>
+        <span id="streakCount">Day 1</span>
+      </div>
+      <div class="xp-wrap">
+        <div class="xp-label" id="xpLabel">0 XP</div>
+        <div class="xp-bar-bg"><div class="xp-bar-fill" id="xpFill" style="width:0%"></div></div>
+        <div class="xp-count" id="xpCount"></div>
+      </div>
+      <div class="usage-pill" id="usagePill"></div>
+    </div>
+  </div>
+
+  <div class="app-progress">
+    <div class="app-progress-inner">
+      <div class="prog-meta">
+        <span class="prog-label" id="progLabel">Getting started</span>
+        <span class="prog-pct" id="progPct">0%</span>
+      </div>
+      <div class="prog-bg"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+    </div>
+  </div>
+
+  <div class="app-body" id="appBody"></div>
+</div>
+
+
+<script>
+// ════════════════════════════════
+// STATE
+// ════════════════════════════════
+const KEY='aipassgo_v4';
+const API_KEY='sk-ant-api03-x6Gro_1ZKijUxYTtibcHXYeHXYe61gUMicd-hhr0Cwngip1SkUYspM4Xw6ZD7UrXQIdLFrpKCmXwhWdelEUZrAMdrQ-hVERxgAA';
+let S={
+  screenIndex:0,
+  xp:0,
+  streak:1,
+  lastVisit:null,
+  fear:null,
+  plan:'free',
+  usageCount:0,
+  usageMonth:new Date().getMonth()+'-'+new Date().getFullYear(),
+  completedScreens:[],
+  fearMeterPct:15
+};
+function load(){
+  try{
+    const d=localStorage.getItem(KEY);
+    if(d) S={...S,...JSON.parse(d)};
+    const m=new Date().getMonth()+'-'+new Date().getFullYear();
+    if(S.usageMonth!==m){S.usageCount=0;S.usageMonth=m;}
+    // Streak logic
+    const today=new Date().toDateString();
+    if(S.lastVisit&&S.lastVisit!==today){
+      const diff=(new Date()-new Date(S.lastVisit))/(1000*60*60*24);
+      if(diff<2) S.streak=(S.streak||1)+1;
+      else if(diff>=2) S.streak=1;
+    }
+    S.lastVisit=today;
+  }catch(e){}
+}
+function save(){
+  try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}
+}
+function addXP(pts){
+  S.xp+=pts;
+  S.fearMeterPct=Math.min(95,S.fearMeterPct+Math.floor(pts/3));
+  save();
+  renderStats();
+}
+function getLimit(){return S.plan==='pro'?200:20;}
+function isAtLimit(){return S.usageCount>=getLimit();}
+
+// ════════════════════════════════
+// SCREENS DEFINITION
+// ════════════════════════════════
+const SCREENS=[
+
+  // ── FEAR ASSESSMENT ──
+  {id:'fear',type:'fear',
+   eyebrow:'Before we start',
+   title:'What worries you most about AI?',
+   body:'Pick the one that feels most true for you right now. There\'s no wrong answer.',
+   options:[
+     {icon:'💼',text:'I\'m worried AI is going to take my job or make my skills worthless.'},
+     {icon:'😕',text:'I feel left out — everyone seems to understand it except me.'},
+     {icon:'🔒',text:'I\'m not sure I can trust it. What about my privacy and safety?'},
+     {icon:'🤯',text:'It just seems way too complicated for someone like me to learn.'},
+     {icon:'🤷',text:'Honestly, I\'m not sure it\'s actually useful for my everyday life.'}
+   ]
+  },
+
+  // ── FEAR RESPONSE ──
+  {id:'fear_response',type:'fear_response',
+   eyebrow:'We hear you',
+   title:'',
+   body:'',
+   next:'I\'m ready to start →'
+  },
+
+  // ── DO FIRST (before any teaching) ──
+  {id:'do_first',type:'do_first',
+   eyebrow:'Session 1 · Do this first',
+   title:'Before we explain anything — try this.',
+   body:'Type your first name and the kind of work you do or did. That\'s all. Then hit the button and watch what happens.',
+   inputPlaceholder:'Example: My name is Sandra and I worked as a school nurse for 25 years.',
+   inputLabel:'Tell AI a little about you:',
+   next:'Wow — now explain that →',
+   xp:15
+  },
+
+  // ── REFLECT ──
+  {id:'reflect',type:'concept',
+   eyebrow:'Session 1 · Now the explanation',
+   title:'Here\'s what just happened.',
+   body:'You gave AI a little bit of information about yourself — and it responded to <strong>you specifically</strong>. Not a generic answer. Your situation.<br><br>That thing you typed is called a <strong>prompt</strong>. And the quality of what AI gives you back is almost entirely determined by how good your prompt is.<br><br>That\'s the whole game. And you just played it.',
+   analogy:'<strong>Think of AI like a brilliant friend who knows about everything.</strong> If you call them and say "I need help" — they don\'t know where to start. But if you say "I\'m a retired nurse and I want to know how AI could help me manage my medication schedule" — now they can really help you. Same friend. Better question.',
+   next:'Got it →',
+   xp:10
+  },
+
+  // ── VOCAB (3 words) ──
+  {id:'vocab1',type:'vocab',
+   eyebrow:'Session 1 · Three words',
+   title:'Three words. That\'s your whole vocabulary for now.',
+   body:'You\'ll hear these constantly. Now you\'ll actually know what they mean.',
+   vocab:[
+     {word:'AI',def:'Software that learned from reading almost everything humans ever wrote — and can talk to you about any of it.'},
+     {word:'Prompt',def:'What you type to AI. Just a question or instruction — like a text to a very smart friend.'},
+     {word:'Model',def:'The specific version of AI you\'re using. Like different apps on your phone — same idea, different strengths.'}
+   ],
+   next:'I\'ve got these →',
+   xp:10
+  },
+
+  // ── QUIZ 1 ──
+  {id:'quiz1',type:'quiz',
+   eyebrow:'Session 1 · Quick check',
+   question:'You just typed your name and job to AI and got a personalized response. What is the thing you typed called?',
+   options:['A command','A prompt','A search','A message'],
+   correct:1,
+   feedback_correct:'Exactly right. A prompt is what you give AI — and better prompts always get better answers.',
+   feedback_wrong:'Not quite — what you type to AI is called a <strong>prompt</strong>. The better your prompt, the better the answer you get back.',
+   xp:20
+  },
+
+  // ── SANDBOX 1 ──
+  {id:'sandbox1',type:'sandbox',
+   eyebrow:'Session 1 · Your turn',
+   title:'Now ask it something for real.',
+   body:'Think of one thing going on in your life right now — a decision, a question, something you\'ve been wondering about. Ask AI about it. Use your real situation.',
+   inputLabel:'Ask AI anything — use your real life:',
+   inputPlaceholder:'Example: I\'m thinking about learning to paint. Where should a 65-year-old complete beginner start?',
+   chips:['I\'m trying to eat healthier but I hate cooking — give me 3 simple ideas','Help me understand what\'s happening with interest rates in plain English','I haven\'t exercised in years. What\'s the gentlest way to start?','My grandchild wants to talk to me about AI. What should I know?'],
+   next:'I asked it something real →',
+   xp:15,
+   required:true
+  },
+
+  // ── SESSION 1 WIN ──
+  {id:'win1',type:'win',
+   emoji:'🎉',
+   title:'You just used AI.',
+   body:'Most people spend months saying they should learn about AI. You just did it. That wasn\'t a demo. That was real. You talked to real AI and it responded to you.',
+   xp_earned:50,
+   shareText:'I just used real AI for the first time — in under 10 minutes. @AIPassGo made it completely painless. Starting Session 2 now. 🚀',
+   next:'Start Session 2 →'
+  },
+
+  // ── SESSION 2: THE POWER MOVE ──
+  {id:'s2_intro',type:'concept',
+   eyebrow:'Session 2 · The power move',
+   title:'You can tell AI who to be. This changes everything.',
+   body:'Here\'s something most people never figure out:<br><br>AI responds completely differently depending on what role you give it before asking your question.<br><br><strong>Without a role:</strong> "What should I eat to sleep better?"<br><strong>With a role:</strong> "You are a nutritionist who works with people over 60. What foods help with sleep quality and why?"<br><br>Same question. Completely different answer.',
+   analogy:'<strong>Calling a general helpline vs. asking your doctor friend.</strong> The helpline gives you generic advice. Your doctor friend knows your situation and gives you something actually useful. You get to choose which one AI is — before it answers.',
+   next:'Let me try this →',
+   xp:10
+  },
+
+  // ── QUIZ 2 ──
+  {id:'quiz2',type:'quiz',
+   eyebrow:'Session 2 · Quick check',
+   question:'What\'s the best way to start a prompt when you want a really specific, useful answer?',
+   options:['Just ask the question directly','Give AI a role first — "You are a doctor who..."','Type in capital letters so it pays attention','Ask the same question three times'],
+   correct:1,
+   feedback_correct:'Exactly. Giving AI a role first is one of the most powerful things you can do. It completely changes the quality of the answer.',
+   feedback_wrong:'The key is giving AI a role before your question — "You are a [type of expert]..." This completely changes the quality of the answer.',
+   xp:20
+  },
+
+  // ── SANDBOX 2 ──
+  {id:'sandbox2',type:'sandbox',
+   eyebrow:'Session 2 · Role prompting',
+   title:'Give AI a role. See what you get.',
+   body:'Try one of the examples below or write your own. Notice how the answer feels completely different when you give AI a role.',
+   inputLabel:'Give AI a role, then ask your question:',
+   inputPlaceholder:'You are a [type of expert]. [Your question here].',
+   chips:['You are a financial advisor who speaks simply. I spend too much every month. Give me 3 honest ways to cut back without feeling miserable.','You are a doctor speaking to a worried patient. Explain what high blood pressure actually is in plain language.','You are a career coach. I\'ve been in the same job for 15 years and feel stuck. What should I be thinking about?','You are a sleep specialist. My mind races at night and I can\'t fall asleep. What are your top 3 practical tips?'],
+   next:'I see the difference →',
+   xp:15,
+   required:true
+  },
+
+  // ── LAUNCH SETUP ──
+  {id:'launch_setup',type:'sandbox',
+   eyebrow:'Session 2 · Your launch',
+   title:'Let\'s build your first shareable thing.',
+   body:'Tell AI about you — your name, something you care about, or something going on in your life. Then ask it to write you a short post, message, or note about it. Something you\'d actually want to share.',
+   inputLabel:'Tell AI about you and what you want to write:',
+   inputPlaceholder:'Example: My name is Carol. I just retired after 30 years of teaching. Write me a short, warm Facebook post about starting this new chapter.',
+   chips:['Write me a short text I can send my family about something I\'m proud of this week','Write a short LinkedIn post about something I\'ve learned recently that surprised me','Write me a short, warm note I could share with a friend who\'s going through a hard time','Write a short post about a hobby I love — make it genuine and not braggy'],
+   next:'I have something worth sharing →',
+   xp:15,
+   required:true
+  },
+
+  // ── LEVEL 1 WIN ──
+  {id:'win_level1',type:'level_win',
+   level:1,
+   emoji:'🚀',
+   title:'You are no longer a beginner.',
+   body:'You walked in not knowing what AI was. You\'re walking out having used it — for real things, in your real life. That\'s a genuine skill.',
+   xp_earned:100,
+   shareText:'I just completed Level 1 of AIPass Go™ — from zero to actually using AI in one session. The "Learn by Launch" method is completely different from anything I\'ve tried before. 🚀',
+   next_label:'Go to Level 2 →',
+   next_screen:'s3_role_prompt'
+  },
+
+  // ── LEVEL 2 ──
+  {id:'s3_role_prompt',type:'concept',
+   eyebrow:'Level 2 · Session 1',
+   title:'Now let\'s make AI work for your actual life.',
+   body:'Level 1 was about understanding what AI is and how to talk to it.<br><br>Level 2 is about making it genuinely useful — for the things you actually deal with every day.<br><br>We\'re going to go deeper on prompting, write something worth publishing, and by the end of this level you\'ll have shared something real with the world.',
+   next:'Let\'s go deeper →',
+   xp:10
+  },
+
+  {id:'quiz3',type:'quiz',
+   eyebrow:'Level 2 · Quick check',
+   question:'Which of these prompts will get the most useful answer from AI?',
+   options:['Help me','Help me please','You are a nutritionist. I\'m 58, I skip breakfast, and I feel tired by 2pm every day. What should I change?','What should I eat?'],
+   correct:2,
+   feedback_correct:'Perfect. Specific role + specific situation + specific question = genuinely useful answer every time.',
+   feedback_wrong:'The most useful prompt gives AI a role and includes specific details about your situation. The more specific you are, the better the answer.',
+   xp:20
+  },
+
+  {id:'sandbox3',type:'sandbox',
+   eyebrow:'Level 2 · Write something real',
+   title:'Write something you\'d actually put your name on.',
+   body:'Use AI to write something genuine — a post, a message, a caption, a note. Tell AI who you are and what you want to say. Make it yours.',
+   inputLabel:'Tell AI who you are and what you want to write:',
+   inputPlaceholder:'Example: I\'m a retired firefighter. Write me a short LinkedIn post about why experience and teamwork still matter more than any technology.',
+   chips:['I run a small bakery from home. Write me a warm Facebook post for our 2-year anniversary. Personal not corporate.','Write me an Instagram caption for a photo of my garden — proud but not braggy, warm and a little funny.','I\'m a grandparent who just learned to use AI. Write a short post I could share that might inspire others my age.','Write me a short motivational note I could share with my team at work about staying positive during a hard season.'],
+   next:'That\'s worth posting →',
+   xp:15,
+   required:true
+  },
+
+  {id:'launch_post',type:'launch_step',
+   eyebrow:'Level 2 · Launch time 🚀',
+   title:'Post it. Right now.',
+   body:'Copy what AI wrote. Open Facebook, Instagram, LinkedIn, X — wherever feels right — and post it.<br><br>You don\'t need to say AI wrote it. You don\'t need to explain anything. <strong>You directed it. It\'s yours.</strong><br><br>That\'s exactly how professional writers, marketers, and communicators work now.',
+   action:'I posted it ✓',
+   xp:25
+  },
+
+  {id:'win_level2',type:'level_win',
+   level:2,
+   emoji:'✍️',
+   title:'You just did something professionals get paid to do.',
+   body:'Content creation with AI is a real skill. Companies hire for it. You just did it — for yourself, for free, in one session.',
+   xp_earned:100,
+   shareText:'Just completed Level 2 of AIPass Go™ — I wrote and posted something real using AI. From "I don\'t know what AI is" to actually using it in two sessions. Learn by Launch. 🚀',
+   next_label:'Continue to Level 3 — Pro →',
+   next_screen:'pro_gate'
+  },
+
+  // ── PRO GATE ──
+  {id:'pro_gate',type:'pro_gate',
+   eyebrow:'Levels 3, 4 &amp; 5',
+   title:'The next three levels are where things get really interesting.',
+   body:'Level 3 — AI images and video. You\'ll create things that look like they came from a professional studio.<br><br>Level 4 — A real website. A live URL. Built by you, with AI, in one session. No code.<br><br>Level 5 — A real payment button. A real product. Your first possible dollar earned with AI.<br><br>All three are included in Pro.',
+   xp:0
+  },
+
+  // ── GRADUATION (shown if somehow they get here) ──
+  {id:'graduation',type:'graduation',
+   emoji:'🎓',
+   title:'You walked in scared. You\'re walking out ready.',
+   body:'Five levels. Real things built. Real skills earned. The AI future isn\'t something happening to you anymore. You\'re part of it.',
+   xp_earned:200
+  }
+];
+
+const FEAR_RESPONSES={
+  0:{
+    title:'Your job isn\'t being replaced. Your job is being upgraded.',
+    body:'Here\'s what the data actually shows: most jobs aren\'t disappearing — they\'re changing. The people who learn to work with AI become more valuable, not less. That\'s exactly what AIPass Go helps you do. By the end of your first session, you\'ll understand AI well enough to have that conversation at work with confidence.'
+  },
+  1:{
+    title:'You\'re not behind. You\'re exactly on time.',
+    body:'Most people who seem to "get" AI learned it in the last 6-12 months. There\'s no years-long head start to catch up to. The tools are new. The playing field is more level than it looks. Six minutes from now, you\'ll have used AI for real — and that feeling of being left out starts to disappear.'
+  },
+  2:{
+    title:'Your instinct to ask questions is exactly right.',
+    body:'Privacy and trust are legitimate things to think about. We\'re going to address that directly — not dismiss it. And we\'ll show you how to use AI in a way that you\'re comfortable with, sharing only what you choose to share. It\'s more controllable than most people realize.'
+  },
+  3:{
+    title:'It\'s not complicated. It\'s just unfamiliar.',
+    body:'There\'s a big difference between complicated and unfamiliar. Playing chess is complicated. A new TV remote is just unfamiliar — you figure it out in five minutes. AI is much closer to the TV remote. By the end of this session, it will feel familiar. That\'s a promise.'
+  },
+  4:{
+    title:'By the end of session one, you\'ll have an answer to that.',
+    body:'Fair question. And the honest answer is: it\'s more useful for everyday life than almost anyone realizes — because most people have never actually sat down and tried it for something real. That\'s exactly what Session 1 does. You try it for something real. Then you decide.'
+  }
+};
+
+let currentScreen=0;
+let quizAnswered=false;
+let sandboxUsed=false;
+
+function startApp(){
+  load();
+  document.getElementById('app').classList.add('open');
+  document.body.style.overflow='hidden';
+  currentScreen=S.screenIndex||0;
+  renderScreen();
+  renderStats();
+  window.scrollTo(0,0);
+}
+
+function exitApp(){
+  S.screenIndex=currentScreen;save();
+  document.getElementById('app').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function renderStats(){
+  // Streak
+  document.getElementById('streakCount').textContent='Day '+(S.streak||1);
+  // XP
+  const xpToNext=500;
+  const pct=Math.min(100,Math.round((S.xp%xpToNext)/xpToNext*100));
+  document.getElementById('xpFill').style.width=pct+'%';
+  document.getElementById('xpLabel').textContent=S.xp+' XP';
+  // Usage
+  const rem=Math.max(0,getLimit()-S.usageCount);
+  const el=document.getElementById('usagePill');
+  if(el) el.textContent=rem+' AI asks left';
+  // Fear meter
+  const fm=document.getElementById('fearFill');
+  if(fm) fm.style.width=(S.fearMeterPct||15)+'%';
+  // Progress
+  const pctDone=Math.round((currentScreen/SCREENS.length)*100);
+  document.getElementById('progFill').style.width=pctDone+'%';
+  document.getElementById('progPct').textContent=pctDone+'%';
+}
+
+function renderScreen(){
+  quizAnswered=false;sandboxUsed=false;
+  const s=SCREENS[currentScreen];
+  if(!s)return;
+  renderStats();
+  document.getElementById('progLabel').textContent=s.eyebrow||'';
+  const body=document.getElementById('appBody');
+  body.innerHTML='';
+
+  if(s.type==='fear') renderFear(s,body);
+  else if(s.type==='fear_response') renderFearResponse(s,body);
+  else if(s.type==='do_first') renderDoFirst(s,body);
+  else if(s.type==='concept') renderConcept(s,body);
+  else if(s.type==='vocab') renderVocab(s,body);
+  else if(s.type==='quiz') renderQuiz(s,body);
+  else if(s.type==='sandbox') renderSandbox(s,body);
+  else if(s.type==='win') renderWin(s,body);
+  else if(s.type==='level_win') renderLevelWin(s,body);
+  else if(s.type==='launch_step') renderLaunchStep(s,body);
+  else if(s.type==='pro_gate') renderProGate(s,body);
+  else if(s.type==='graduation') renderGraduation(s,body);
+
+  body.scrollTop=0;
+  document.getElementById('app').scrollTop=0;
+}
+
+function next(xpPts){
+  if(xpPts) addXP(xpPts);
+  S.completedScreens=[...new Set([...S.completedScreens,currentScreen])];
+  currentScreen++;
+  S.screenIndex=currentScreen;
+  save();
+  renderScreen();
+}
+
+// ── RENDER FUNCTIONS ──
+
+function renderFear(s,body){
+  let html=`<div class="screen">
+    <div class="screen-eyebrow">${s.eyebrow}</div>
+    <div class="screen-title">${s.title}</div>
+    <div class="screen-body" style="font-size:17px;">${s.body}</div>
+    <div class="fear-options">`;
+  s.options.forEach((o,i)=>{
+    html+=`<button class="fear-opt" onclick="selectFear(${i},this)">
+      <span class="fear-icon">${o.icon}</span>
+      <span>${o.text}</span>
+    </button>`;
+  });
+  html+=`</div>
+    <div class="screen-nav">
+      <div></div>
+      <button class="btn-next" id="fearNext" disabled onclick="next(5)">That\'s the one →</button>
+    </div>
+  </div>`;
+  body.innerHTML=html;
+}
+
+function selectFear(idx,el){
+  document.querySelectorAll('.fear-opt').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  S.fear=idx;save();
+  document.getElementById('fearNext').disabled=false;
+}
+
+function renderFearResponse(s,body){
+  const r=FEAR_RESPONSES[S.fear||0];
+  body.innerHTML=`<div class="screen">
+    <div class="screen-eyebrow">${s.eyebrow}</div>
+    <div class="screen-title">${r.title}</div>
+    <div class="screen-body">${r.body}</div>
+    <div class="fear-meter" style="margin-top:8px;">
+      <div class="fear-meter-label">
+        <span>Your AI confidence</span>
+        <span id="fearPctLabel">${S.fearMeterPct||15}% — just getting started</span>
+      </div>
+      <div class="fear-track"><div class="fear-fill" id="fearFill" style="width:${S.fearMeterPct||15}%"></div></div>
+    </div>
+    <div class="screen-nav">
+      <button class="btn-back" onclick="prev()">← Back</button>
+      <button class="btn-next" onclick="next(10)">${s.next}</button>
+    </div>
+  </div>`;
+  setTimeout(()=>{
+    S.fearMeterPct=Math.min(95,(S.fearMeterPct||15)+10);
+    const el=document.getElementById('fearFill');
+    const lbl=document.getElementById('fearPctLabel');
+    if(el) el.style.width=S.fearMeterPct+'%';
+    if(lbl) lbl.textContent=S.fearMeterPct+'% — growing';
+    save();
+  },600);
+}
+
+function renderDoFirst(s,body){
+  body.innerHTML=`<div class="screen">
+    <div class="screen-eyebrow">${s.eyebrow}</div>
+    <div class="screen-title">${s.title}</div>
+    <div class="screen-body">${s.body}</div>
+    <label class="input-label">${s.inputLabel}</label>
+    <textarea class="big-input" id="doFirstInput" placeholder="${s.inputPlaceholder}" rows="3"></textarea>
+    <button class="send-btn" id="doFirstBtn" onclick="sendDoFirst()">See what AI says about you →</button>
+    <div class="ai-response-box" id="doFirstResp">
+      <div class="ai-resp-label">AI says</div>
+      <div id="doFirstText" class="ai-resp-text"></div>
+    </div>
+    <div class="screen-nav" id="doFirstNav" style="display:none;">
+      <button class="btn-back" onclick="prev()">← Back</button>
+      <button class="btn-next" onclick="next(${s.xp||15})">${s.next}</button>
+    </div>
+    <div class="locked-note" id="doFirstLock">Try it first — then we explain what just happened.</div>
+  </div>`;
+}
+
+async function sendDoFirst(){
+  const inp=document.getElementById('doFirstInput');
+  const btn=document.getElementById('doFirstBtn');
+  const resp=document.getElementById('doFirstResp');
+  const txt=document.getElementById('doFirstText');
+  if(!inp||!inp.value.trim())return;
+  if(isAtLimit()){showLimitModal();return;}
+  btn.disabled=true;btn.textContent='Just a moment...';
+  resp.classList.add('show');
+  txt.innerHTML='<div class="typing"><span></span><span></span><span></span></div>';
+  const q=`The user just told you: "${inp.value.trim()}". Respond warmly and specifically — tell them 2-3 concrete ways AI could genuinely help someone in their situation. Be personal, warm, and encouraging. 3-4 sentences max. No jargon.`;
+  const ans=await callAI(q);
+  txt.textContent=ans;
+  S.usageCount++;save();renderStats();
+  btn.style.display='none';
+  document.getElementById('doFirstNav').style.display='flex';
+  document.getElementById('doFirstLock').style.display='none';
+  addXP(5);
+}
+
+function renderConcept(s,body){
+  body.innerHTML=`<div class="screen">
+    <div class="screen-eyebrow">${s.eyebrow}</div>
+    <div class="screen-title">${s.title}</div>
+    <div class="screen-body">${s.body}</div>
+    ${s.analogy?`<div class="analogy-box">${s.analogy}</div>`:''}
+    <div class="screen-nav">
+      ${currentScreen>0?`<button class="btn-back" onclick="prev()">← Back</button>`:'<div></div>'}
+      <button class="btn-next" onclick="next(${s.xp||10})">${s.next||'Got it →'}</button>
+    </div>
+  </div>`;
+}
+
+function renderVocab(s,body){
+  let vcards='';
+  s.vocab.forEach(v=>{
+    vcards+=`<div class="vocab-card">
+      <div class="vocab-word">${v.word}</div>
+      <div class="vocab-def">${v.def}</div>
+    </div>`;
+  });
+  body.innerHTML=`<div class="screen">
+    <div class="screen-eyebrow">${s.eyebrow}</div>
+    <div class="screen-title">${s.title}</div>
+    <div class="screen-body">${s.body}</div>
+    <div class="vocab-grid">${vcards}</div>
+    <div class="screen-nav">
+      <button class="btn-back" onclick="prev()">← Back</button>
+      <button class="btn-next" onclick="next(${s.xp||10})">${s.next||'Got it →'}</button>
+    </div>
+  </div>`;
+}
+
+function renderQuiz(s,body){
+  let opts='';
+  s.options.forEach((o,i)=>{
+    opts+=`<button class="quiz-opt" id="qopt${i}" onclick="answerQuiz(${i})">${o}</button>`;
+  });
+  body.innerHTML=`<div class="screen">
+    <div class="screen-eyebrow">${s.eyebrow}</div>
+    <div class="quiz-question">${s.question}</div>
+    <div class="quiz-opts">${opts}</div>
+    <div class="quiz-feedback" id="qfeedback"></div>
+    <div class="screen-nav" id="quizNav" style="display:none;">
+      <div></div>
+      <button class="btn-next" onclick="next(${s.xp||20})">Keep going →</button>
+    </div>
+    <div class="locked-note" id="quizLock">Answer the question to continue.</div>
+  </div>`;
+}
+
+function answerQuiz(idx){
+  if(quizAnswered)return;
+  quizAnswered=true;
+  const s=SCREENS[currentScreen];
+  const correct=idx===s.correct;
+  document.querySelectorAll('.quiz-opt').forEach((o,i)=>{
+    o.style.pointerEvents='none';
+    if(i===s.correct) o.classList.add('correct');
+    else if(i===idx&&!correct) o.classList.add('wrong');
+  });
+  const fb=document.getElementById('qfeedback');
+  fb.className='quiz-feedback show '+(correct?'correct-fb':'wrong-fb');
+  fb.innerHTML=(correct?'✓ '+s.feedback_correct:'✗ '+s.feedback_wrong);
+  document.getElementById('quizNav').style.display='flex';
+  document.getElementById('quizLock').style.display='none';
+  if(correct) addXP(s.xp||20);
+  else addXP(5);
+}
+
+function renderSandbox(s,body){
+  let chips='';
+  if(s.chips) s.chips.forEach(c=>{
+    chips+=`<button class="chip" onclick="useChip(this,'${c.replace(/'/g,"\\'")}')">${c.substring(0,50)}${c.length>50?'...':''}</button>`;
+  });
+  body.innerHTML=`<div class="screen">
+    <div class="screen-eyebrow">${s.eyebrow}</div>
+    <div class="screen-title">${s.title}</div>
+    <div class="screen-body">${s.body}</div>
+    ${chips?`<div class="chips">${chips}</div>`:''}
+    <label class="input-label">${s.inputLabel||''}</label>
+    <textarea class="big-input" id="sbInput" placeholder="${s.inputPlaceholder||'Type your question here...'}" rows="3"></textarea>
+    <button class="send-btn" id="sbBtn" onclick="sendSandbox()">Ask AI →</button>
+    <div class="ai-response-box" id="sbResp">
+      <div class="ai-resp-label">AI says</div>
+      <div id="sbText" class="ai-resp-text"></div>
+    </div>
+    <div class="screen-nav" id="sbNav" ${s.required?'style="display:none;"':''}>
+      <button class="btn-back" onclick="prev()">← Back</button>
+      <button class="btn-next" onclick="next(${s.xp||15})">${s.next||'Continue →'}</button>
+    </div>
+    ${s.required?`<div class="locked-note" id="sbLock">Try it first — then you can continue.</div>`:''}
+  </div>`;
+}
+
+function useChip(el,text){
+  const inp=document.getElementById('sbInput');
+  if(inp) inp.value=text;
+}
+
+async function sendSandbox(){
+  const inp=document.getElementById('sbInput');
+  const btn=document.getElementById('sbBtn');
+  const resp=document.getElementById('sbResp');
+  const txt=document.getElementById('sbText');
+  if(!inp||!inp.value.trim())return;
+  if(isAtLimit()){showLimitModal();return;}
+  btn.disabled=true;btn.textContent='Thinking...';
+  resp.classList.add('show');
+  txt.innerHTML='<div class="typing"><span></span><span></span><span></span></div>';
+  const ans=await callAI(inp.value.trim());
+  txt.textContent=ans;
+  S.usageCount++;save();renderStats();
+  btn.disabled=false;btn.textContent='Ask again →';
+  sandboxUsed=true;
+  const nav=document.getElementById('sbNav');
+  const lock=document.getElementById('sbLock');
+  if(nav) nav.style.display='flex';
+  if(lock) lock.style.display='none';
+  addXP(5);
+}
+
+function renderLaunchStep(s,body){
+  body.innerHTML=`<div class="screen">
+    <div class="screen-eyebrow">${s.eyebrow}</div>
+    <div class="screen-title">${s.title}</div>
+    <div class="screen-body">${s.body}</div>
+    <div class="screen-nav">
+      <button class="btn-back" onclick="prev()">← Back</button>
+      <button class="btn-next" onclick="next(${s.xp||25})">${s.action||'Done →'}</button>
+    </div>
+  </div>`;
+}
+
+function renderWin(s,body){
+  body.innerHTML=`<div class="screen win-screen">
+    <span class="win-emoji">${s.emoji}</span>
+    <div class="win-title">${s.title}</div>
+    <div class="win-body">${s.body}</div>
+    <div class="xp-pop">+${s.xp_earned} XP earned 🌟</div>
+    <div class="share-box">
+      <p>Tell someone — you earned this moment.</p>
+      <div class="share-btns">
+        <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('${s.shareText}'),'_blank')">Share on X</button>
+        <button class="share-btn" onclick="navigator.clipboard.writeText('${s.shareText}').then(()=>alert('Copied!'))">Copy to share</button>
+      </div>
+    </div>
+    <button class="btn-continue" onclick="next(${s.xp_earned})">${s.next}</button>
+  </div>`;
+}
+
+function renderLevelWin(s,body){
+  const shareMsg=s.shareText||'I just completed a level of AIPass Go™ — Learn by Launch 🚀';
+  body.innerHTML=`<div class="screen win-screen">
+    <span class="win-emoji">${s.emoji}</span>
+    <div class="win-title">${s.title}</div>
+    <div class="win-body">${s.body}</div>
+    <div class="xp-pop">+${s.xp_earned} XP · Level ${s.level} Complete 🏆</div>
+    <div class="share-box">
+      <p>Share this — most people never get here.</p>
+      <div class="share-btns">
+        <button class="share-btn" onclick="window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('${shareMsg}'),'_blank')">Share on X</button>
+        <button class="share-btn" onclick="navigator.clipboard.writeText('${shareMsg}').then(()=>alert('Copied!'))">Copy</button>
+      </div>
+    </div>
+    <button class="btn-continue" onclick="next(${s.xp_earned})">${s.next_label||'Continue →'}</button>
+  </div>`;
+}
+
+function renderProGate(s,body){
+  body.innerHTML=`<div class="screen">
+    <div class="screen-eyebrow">${s.eyebrow}</div>
+    <div class="screen-title">${s.title}</div>
+    <div class="screen-body">${s.body}</div>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px;">
+      <button class="btn-next" style="background:var(--teal);" onclick="alert('Stripe checkout coming very soon! Your progress is saved.')">Upgrade to Pro — $9.99/mo →</button>
+      <button class="btn-back" style="text-align:center;" onclick="exitApp()">Save my progress and come back later</button>
+    </div>
+    <p style="text-align:center;font-size:14px;color:var(--text-faint);margin-top:16px;">Your Level 1 &amp; 2 progress is saved automatically.</p>
+  </div>`;
+}
+
+function renderGraduation(s,body){
+  body.innerHTML=`<div class="screen win-screen">
+    <span class="win-emoji">${s.emoji}</span>
+    <div class="win-title">${s.title}</div>
+    <div class="win-body">${s.body}</div>
+    <div class="grad-card">
+      <ul class="grad-list">
+        <li>Talk to AI and get real useful answers</li>
+        <li>Write content that sounds like you — AI assisted</li>
+        <li>Create professional images and video</li>
+        <li>Build a website from scratch with no code</li>
+        <li>Take a payment from anyone in the world</li>
+      </ul>
+    </div>
+    <div class="grad-badge">
+      <div style="font-size:32px;margin-bottom:8px;">🎓</div>
+      <div class="grad-badge-title">AIPass Go™ Graduate</div>
+      <div class="grad-badge-sub">Five levels · Five real launches · Learn by Launch</div>
+    </div>
+    <div class="xp-pop">+${s.xp_earned} XP · Fully Certified 🎓</div>
+    <button class="btn-continue" onclick="exitApp()">Back to AIPass Go →</button>
+  </div>`;
+  addXP(s.xp_earned||200);
+}
+
+function prev(){
+  if(currentScreen>0){currentScreen--;renderScreen();}
+}
+
+// ── AI CALL ──
+async function callAI(prompt){
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key':API_KEY,
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true'
+      },
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:300,
+        system:'You are a warm, encouraging AI tutor inside AIPass Go — an app teaching complete beginners about AI. Keep every answer to 3-4 sentences maximum. Use plain English. No jargon. Be personal and warm. Make them feel capable, not overwhelmed. If they share personal info about themselves, respond to THEIR specific situation.',
+        messages:[{role:'user',content:prompt}]
+      })
+    });
+    const d=await res.json();
+    return d.content&&d.content[0]&&d.content[0].text?d.content[0].text:'Try again in a moment!';
+  }catch(e){
+    return 'Try again in a moment — sometimes there\'s a small delay!';
+  }
+}
+
+// ── USAGE LIMIT MODAL ──
+function showLimitModal(){
+  const resetDate=(()=>{const d=new Date();d.setMonth(d.getMonth()+1);d.setDate(1);return d.toLocaleDateString([],{month:'long',day:'numeric'});})();
+  const m=document.createElement('div');
+  m.className='modal-overlay';m.id='limitModal';
+  m.innerHTML=`<div class="modal-box">
+    <div style="font-size:48px;margin-bottom:16px;">☕</div>
+    <h3>You've been busy!</h3>
+    <p>You've used all <strong>${getLimit()} AI interactions</strong> this month. Your counter resets on <strong>${resetDate}</strong> — or get more right now.</p>
+    <div class="modal-opts">
+      ${S.plan==='free'?`<button class="modal-opt-primary" onclick="alert('Stripe coming soon!');closeModal()">⭐ Upgrade to Pro — $9.99/mo<br><small style="font-weight:400;opacity:0.85;">200 interactions/month + all 5 levels</small></button>`:`<button class="modal-opt-primary" oncl
