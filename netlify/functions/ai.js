@@ -1,12 +1,25 @@
 const https = require('https');
 
 exports.handler = async function(event) {
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS'
+      },
+      body: ''
+    };
+  }
+
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: 'Method not allowed' };
   }
 
   try {
-    const { prompt } = JSON.parse(event.body);
+    const body = JSON.parse(event.body);
+    const prompt = body.prompt;
 
     const payload = JSON.stringify({
       model: 'claude-sonnet-4-20250514',
@@ -42,7 +55,7 @@ exports.handler = async function(event) {
         });
       });
 
-      req.on('error', reject);
+      req.on('error', (e) => resolve('Try again in a moment!'));
       req.write(payload);
       req.end();
     });
@@ -59,7 +72,10 @@ exports.handler = async function(event) {
   } catch(err) {
     return {
       statusCode: 200,
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
       body: JSON.stringify({ answer: 'Try again in a moment!' })
     };
   }
