@@ -1546,7 +1546,7 @@ async function sendPrompt(){
   resp.classList.add('show');
   txt.innerHTML='<div class="typing-dots"><span></span><span></span><span></span></div>';
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
+    const res=await fetch('https://api./api/ai/v1/messages',{
       method:'POST',
       headers:{'Content-Type':'application/json','x-api-key':'sk-ant-api03-x6Gro_1ZKijUxYTtibcHXYeHXYe61gUMicd-hhr0Cwngip1SkUYspM4Xw6ZD7UrXQIdLFrpKCmXwhWdelEUZrAMdrQ-hVERxgAA','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
       body:JSON.stringify({
