@@ -1513,27 +1513,35 @@ function prev(){
 
 // ── AI CALL ──
 async function callAI(prompt){
-  try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
+
+ try{
+
+   const response = await fetch('/api/chat',{
+
       method:'POST',
+
       headers:{
-        'Content-Type':'application/json',
-        'x-api-key':API_KEY,
-        'anthropic-version':'2023-06-01',
-        'anthropic-dangerous-direct-browser-access':'true'
+         'Content-Type':'application/json'
       },
+
       body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:300,
-        system:'You are a warm, encouraging AI tutor inside AIPass Go — an app teaching complete beginners about AI. Keep every answer to 3-4 sentences maximum. Use plain English. No jargon. Be personal and warm. Make them feel capable, not overwhelmed. If they share personal info about themselves, respond to THEIR specific situation.',
-        messages:[{role:'user',content:prompt}]
+         message:prompt
       })
-    });
-    const d=await res.json();
-    return d.content&&d.content[0]&&d.content[0].text?d.content[0].text:'Try again in a moment!';
-  }catch(e){
-    return 'Try again in a moment — sometimes there\'s a small delay!';
-  }
+
+   });
+
+   const data=await response.json();
+
+   return data.reply;
+
+ }catch(e){
+
+   console.error(e);
+
+   return "AI connection error.";
+
+ }
+
 }
 
 // ── USAGE LIMIT MODAL ──
